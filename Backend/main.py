@@ -14,3 +14,7 @@ app.include_router(authorization.router)
 @app.get("/", tags=["Help generation"])
 def root():
     return {"message": "Energy monitor"}
+
+
+#if __name__ == "__main__":
+#    uvicorn.run(app, host="0.0.0.0", port=8080)

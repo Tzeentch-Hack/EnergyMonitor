@@ -12,11 +12,15 @@ import org.koin.androidx.compose.koinViewModel
 fun Authorization(navController: NavController,viewModel: AuthViewModel = koinViewModel()){
     when(val authState = viewModel.authState.collectAsState().value){
         is AuthStates.Initial->{
-           EnterIp()
+           EnterIp(onIpEnter = {ip -> viewModel.setIp(ip) })
         }
 
         is AuthStates.Form->{
-            EnterAuthData(authState.error)
+            EnterAuthData(
+                authState.error,
+                onRegClick = {name, pass -> viewModel.registerUser(name,pass) },
+                onEnterClick = {name, pass -> viewModel.loginUser(name,pass) }
+            )
         }
 
         is AuthStates.GoToMainScreen->{

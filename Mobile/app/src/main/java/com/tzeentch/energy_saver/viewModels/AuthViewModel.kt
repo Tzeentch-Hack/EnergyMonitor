@@ -46,6 +46,7 @@ private val prefs: PreferenceManager
     fun setIp(ip:String){
         viewModelScope.launch(coroutineExceptionHandler) {
             prefs.setIp(ip)
+            _authState.value = AuthStates.Form("")
         }
     }
 

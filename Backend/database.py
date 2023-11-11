@@ -38,6 +38,16 @@ class DeviceInDBSQL(Base):
     consumptionSummary = Column(String, nullable=True)
 
 
+class DeviceWattHistory(Base):
+    __tablename__ = "deviceshistory"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String)
+    deviceID = Column(String, unique=True)
+    wattConsumption = Column(String, nullable=True)
+    timeStamp = Column(String, nullable=True)
+
+
 Base.metadata.create_all(bind=engine)
 SessionLocal = sessionmaker(autoflush=False, bind=engine)
 db = SessionLocal()

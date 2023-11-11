@@ -7,9 +7,13 @@ def calculate(consumers_list: list[models.Consumer], interval: int):
     for consumer in consumers_list:
         consumer_from_db = database.db.query(database.DeviceInDBSQL).filter_by(deviceID=consumer.consumer_id).first()
         if consumer_from_db:
+            consumer_from_db.username = consumer.username
+            consumer_from_db.enabled = consumer.enabled
+            consumer_from_db.deviceName = consumer_from_db.deviceName
+            consumer_from_db.workingTime = consumer_from_db.workingTime
             consumer_from_db.wattConsumption = consumer.watt_consumption
-            working_time = consumer.working_time
-            consumer_from_db. workingTime = working_time
+            consumer_from_db.sum_consumption = consumer.sum_consumption
+            consumer_from_db.consumptionSummary = consumer.consumption_summary
             database.db.merge(consumer_from_db)
         else:
             new_device = database.DeviceInDBSQL(

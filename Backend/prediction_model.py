@@ -3,9 +3,10 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
-from keras.models import Sequential
+from keras.models import Sequential, load_model
 from keras.layers import LSTM, Dense
 import os
+import joblib
 
 def load_and_scale_data(file_path):
     try:
@@ -37,25 +38,45 @@ def build_and_train_model(X_train, y_train, X_val, y_val, n_steps, n_features, e
     model.fit(X_train, y_train, epochs=epochs, validation_data=(X_val, y_val))
     return model
 
+def save_model_and_scaler(model, scaler, model_path, scaler_path):
+    model.save(model_path)
+    joblib.dump(scaler, scaler_path)
+
+def load_model_and_scaler(model_path, scaler_path):
+    model = load_model(model_path)
+    scaler = joblib.load(scaler_path)
+    return model, scaler
+
+def predict_single_window(model, scaler, window_data):
+    window_scaled = scaler.transform(window_data)
+    window_reshaped = np.array([window_scaled])
+    prediction = model.predict(window_reshaped)
+    prediction_rescaled = scaler.inverse_transform(prediction)
+    return prediction_rescaled
+
 def format_predictions(predictions):
     return np.array([["{:.1f}".format(num) for num in row] for row in predictions])
 
-if __name__ == "__main__":
-    os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-    data_path = 'data/temp_data.csv'
-    n_steps = 5
-
+def train_and_save_model(data_path, model_path, scaler_path, n_steps, test_size=0.2, random_state=42, epochs=5):
     data_scaled, scaler = load_and_scale_data(data_path)
     if data_scaled is not None:
         X, y = create_sequences(data_scaled, n_steps)
-        X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+        X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=test_size, random_state=random_state)
+        model = build_and_train_model(X_train, y_train, X_val, y_val, n_steps, X.shape[2], epochs)
+        save_model_and_scaler(model, scaler, model_path, scaler_path)
 
-        model = build_and_train_model(X_train, y_train, X_val, y_val, n_steps, X.shape[2])
+if __name__ == "__main__":
+    train_needed = False
+    os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+    data_path = 'data/temp_data.csv'
+    model_path = 'models/prediction_model.h5'
+    scaler_path = 'models/prediction_scaler.pkl'
+    n_steps = 5
 
-        predictions = model.predict(X_val)
-        print('Predictions before scaling:', format_predictions(predictions))
-        predictions = scaler.inverse_transform(predictions)
-        print('Predictions after scaling:', format_predictions(predictions))
-
-        mse = mean_squared_error(y_val, predictions)
-        print(f'Mean Squared Error: {mse}')
+    if train_needed:
+        train_and_save_model(data_path, model_path, scaler_path, n_steps)
+    else:
+        model, scaler = load_model_and_scaler(model_path, scaler_path)
+        new_window_data = pd.read_csv(data_path)[-n_steps:]
+        prediction = predict_single_window(model, scaler, new_window_data)
+        print('Prediction:', format_predictions(prediction))

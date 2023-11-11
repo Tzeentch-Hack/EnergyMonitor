@@ -56,7 +56,8 @@ def detect_anomaly_in_window(window, model, scaler, threshold):
 if __name__ == "__main__":
     #train_and_save_model('data/temp_data.csv', 'anomaly_detection.h5', 'anomaly_detection_scaler.pkl')
 
-    loaded_model, loaded_scaler = load_model_and_scaler('anomaly_detection.h5', 'anomaly_detection_scaler.pkl')
+    loaded_model, loaded_scaler = load_model_and_scaler('models/anomaly_detection.h5',
+                                                        'models/anomaly_detection_scaler.pkl')
 
     new_data_chunk = pd.read_csv('data/temp_data.csv')
     print('new_data_chunk', new_data_chunk)

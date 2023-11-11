@@ -8,19 +8,23 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.Button
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberDrawerState
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -32,11 +36,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import com.tzeentch.energy_saver.R
 import com.tzeentch.energy_saver.helpers.NavigationItem
 import com.tzeentch.energy_saver.ui.compose.components.IpDialog
@@ -52,8 +57,9 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
     val scope = rememberCoroutineScope()
     val openChangeIPDialog = remember { mutableStateOf(false) }
     var isSum by remember { mutableStateOf(false) }
-    val sheetState = rememberModalBottomSheetState()
-    when(viewModel.homeState.collectAsState().value) {
+    val bottomSheetScaffoldState = rememberBottomSheetScaffoldState()
+
+    when (viewModel.homeState.collectAsState().value) {
         is MainStates.Main -> {
             ModalNavigationDrawer(
                 drawerState = drawerState,
@@ -138,23 +144,92 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                             Text(text = "So'm")
                         }
                     }
+                    SpiderCluster(
+                        legVisibility = listOf(
+                            true,
+                            true,
+                            true,
+                            true,
+                            true,
+                            true,
+                            true,
+                            true,
+                            true,
+                            true
+                        )
+                    )
+                    BottomSheetScaffold(
+                        scaffoldState = bottomSheetScaffoldState,
+                        sheetDragHandle = {
+                            Column(
+                                modifier = Modifier.fillMaxWidth().padding(vertical = 14.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
+                            ) {
+                                Surface(
+                                    modifier = Modifier
+                                        .padding(vertical = 0.dp)
+                                        .semantics { contentDescription = "dragHandleDescription" },
+                                    color = Color.Gray,
+                                    shape = MaterialTheme.shapes.extraLarge
+                                ) {
+                                    Box(
+                                        Modifier
+                                            .size(
+                                                width = 32.dp,
+                                                height = 4.dp
+                                            )
+                                    )
+                                }
+                                Text(modifier = Modifier.padding(vertical = 8.dp), text = "Refrigerator 228")
+                            }
+                        },
+                        sheetContent = {
+                            Box(
+                                Modifier
+                                    .fillMaxWidth()
+                                    .height(128.dp),
+                                contentAlignment = Alignment.TopCenter
+                            ) {
+                                Text("Swipe up to expand sheet")
+                            }
+                            Column(
+                                Modifier
+                                    .fillMaxWidth()
+                                    .padding(64.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text("Sheet content")
+                                Spacer(Modifier.height(20.dp))
+                                Button(
+                                    onClick = {
+                                        scope.launch { bottomSheetScaffoldState.bottomSheetState.partialExpand() }
+                                    }
+                                ) {
+                                    Text("Click to collapse sheet")
+                                }
+                            }
+                        },
+                        content = {},
+                    )
                 }
             }
             if (openChangeIPDialog.value) {
                 IpDialog(onChangeIpClick = {
-                      viewModel.changeIP(it)
+                    viewModel.changeIP(it)
                 }) {
                     openChangeIPDialog.value = false
                 }
             }
         }
-        is MainStates.Exit->{
-               navController.navigate(NavigationItem.Authorization.route){
-                   popUpTo(NavigationItem.MainScreen.route) {
-                       inclusive = true
-                   }
-                   launchSingleTop = true
-               }
+
+        is MainStates.Exit -> {
+            navController.navigate(NavigationItem.Authorization.route) {
+                popUpTo(NavigationItem.MainScreen.route) {
+                    inclusive = true
+                }
+                launchSingleTop = true
+            }
         }
     }
 

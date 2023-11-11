@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import List
 
 
 class Token(BaseModel):
@@ -20,15 +21,23 @@ class UserInDB(User):
 
 
 class Consumer(BaseModel):
-    username: str
+    username: str | None = None
     consumer_id: str
-    enabled: bool
-    device_name: str
-    started_time: str
-    working_time: str
-    watt_consumption: str
-    sum_consumption: str
-    consumption_summary: str
+    enabled: str | None = None
+    device_name: str | None = None
+    started_time: str | None = None
+    working_time: str | None = None
+    watt_consumption: str | None = None
+    sum_consumption: str | None = None
+    consumption_summary: str | None = None
+
+
+class ConsumerList(BaseModel):
+    data: List[Consumer]
+
+
+class TestModel(BaseModel):
+    test_data: int
 
 
 class UserInDB(User):

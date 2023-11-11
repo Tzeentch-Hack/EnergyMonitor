@@ -29,7 +29,7 @@ namespace ElectricityEmulator
             gateway = new Gateway();
         }
 
-        private void Emulate(object? sender, EventArgs e)
+        private async void Emulate(object? sender, EventArgs e)
         {
             foreach (var consumer in consumers)
             {
@@ -39,7 +39,7 @@ namespace ElectricityEmulator
                     consumer.TimeWorking = delta;
                     OnTick?.Invoke(consumers);
                     // Send message to server
-                    
+                    await gateway.PostUpdate(consumers);
                 }
             }
         }

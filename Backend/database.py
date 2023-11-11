@@ -29,7 +29,7 @@ class DeviceInDBSQL(Base):
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String)
     deviceID = Column(String, unique=True)
-    enabled = Column(BOOLEAN, nullable=True)
+    enabled = Column(String, nullable=True)
     deviceName = Column(String, nullable=True)
     startedTime = Column(String, nullable=True)
     workingTime = Column(String, nullable=True)

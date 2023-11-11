@@ -14,3 +14,6 @@ C:\Hackathon\TechGenius\EnergyMonitor\Desktop\ElectricityEmulator\ElectricityEmu
 C:\Hackathon\TechGenius\EnergyMonitor\Desktop\ElectricityEmulator\ElectricityEmulator\obj\Debug\net6.0-windows\ElectricityEmulator.pdb
 C:\Hackathon\TechGenius\EnergyMonitor\Desktop\ElectricityEmulator\ElectricityEmulator\obj\Debug\net6.0-windows\ElectricityEmulator.genruntimeconfig.cache
 C:\Hackathon\TechGenius\EnergyMonitor\Desktop\ElectricityEmulator\ElectricityEmulator\obj\Debug\net6.0-windows\ref\ElectricityEmulator.dll
+C:\Hackathon\TechGenius\EnergyMonitor\Desktop\ElectricityEmulator\ElectricityEmulator\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Hackathon\TechGenius\EnergyMonitor\Desktop\ElectricityEmulator\ElectricityEmulator\obj\Debug\net6.0-windows\ElectricityEmulator.csproj.AssemblyReference.cache
+C:\Hackathon\TechGenius\EnergyMonitor\Desktop\ElectricityEmulator\ElectricityEmulator\obj\Debug\net6.0-windows\ElectricityEmulator.csproj.CopyComplete

@@ -1,4 +1,4 @@
-from typing import Annotated, List
+from typing import Annotated, List, Any
 
 from fastapi import Depends, FastAPI, File, UploadFile, Request, HTTPException
 from fastapi.responses import FileResponse
@@ -11,6 +11,7 @@ import prediction_model
 import anomaly_model
 
 import monitoring_core
+from fastapi import Body, FastAPI
 
 app = FastAPI()
 app.include_router(authorization.router)
@@ -51,10 +52,9 @@ def root():
 
 
 @app.post("/device_statistics", tags=["Energy"])
-def post_device_statistics(current_user: Annotated[models.User, Depends(authorization.get_current_active_user)],
-                           consumers_list: list[models.Consumer],
-                           interval: int):
-    monitoring_core.calculate(consumers_list)
+def post_device_statistics(interval: int, list_consumers: models.ConsumerList):
+    print(list_consumers.data)
+    monitoring_core.calculate(list_consumers.data, interval)
     return {"message": "Devices have been updated"}
 
 

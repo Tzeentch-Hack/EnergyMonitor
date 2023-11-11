@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "s7xMIjfWRuZixcUOptJU65IDmBGw1gv93577jgsmBcZ2j6hcaqNImQNNUn2K0Rz9pMGv0ZcdpvUZ28kYnUK0tw==",
+  "dgSpecHash": "Z0eyq60O71rhT99tWEUZBKixOfc+9GebUcPYfHc/k3bNEwWo5MKMzAjYsv2vzHabBr42oirgTxqFqTNSlM1/uw==",
   "success": true,
   "projectFilePath": "C:\\Hackathon\\TechGenius\\EnergyMonitor\\Desktop\\ElectricityEmulator\\ElectricityEmulator\\ElectricityEmulator.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\SherA\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

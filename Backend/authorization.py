@@ -7,6 +7,7 @@ from fastapi import APIRouter
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
+import json
 
 import models
 import database
@@ -30,7 +31,12 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def get_user(username: str):
     user_from_sql = database.db.query(database.UserInDBSQL).filter(database.UserInDBSQL.username == username).first()
-    return models.UserInDB(username=user_from_sql.username, hashed_password=user_from_sql.hashed_password)
+    if user_from_sql is None:
+        return None
+    user_model = models.UserInDB(username=user_from_sql.username,
+                                 hashed_password=user_from_sql.hashed_password,
+                                 disabled=user_from_sql.disabled)
+    return user_model
 
 
 def username_exist(username: str):
@@ -127,7 +133,9 @@ def register_new_user(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]
     if username_exist(new_username):
         raise HTTPException(status_code=409, detail="User already exist")
     new_password_hash = get_password_hash(form_data.password)
-    new_user = database.UserInDBSQL(username=new_username, hashed_password=new_password_hash)
+    new_user = database.UserInDBSQL(username=new_username,
+                                    hashed_password=new_password_hash,
+                                    disabled=False)
     database.db.add(new_user)
     database.db.commit()
     return login_for_access_token(form_data)

@@ -23,26 +23,23 @@ class UserInDBSQL(Base):
     hashed_password = Column(String)
 
 
-class RequestCounter(Base):
-    __tablename__ = "request_counter"
+class DeviceInDBSQL(Base):
+    __tablename__ = "devices"
 
-    id = Column(Integer, primary_key=True)
-    request_count = Column(Integer, default=0)
-
-    def to_dict(self):
-        return {
-            'request_count': self.request_count,
-        }
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String)
+    deviceID = Column(String, unique=True)
+    enabled = Column(String, nullable=True)
+    deviceName = Column(String, nullable=True)
+    startedTime = Column(String, nullable=True)
+    workingTime = Column(String, nullable=True)
+    wattConsumption = Column(String, nullable=True)
+    sum_consumption = Column(String, nullable=True)
+    consumptionSummary = Column(String, nullable=True)
 
 
 Base.metadata.create_all(bind=engine)
 SessionLocal = sessionmaker(autoflush=False, bind=engine)
 db = SessionLocal()
-
-
-if not db.query(RequestCounter).filter(RequestCounter.id == 1).first():
-    initial_request_counter = RequestCounter(request_count=0)
-    db.add(initial_request_counter)
-    db.commit()
 
 app = None

@@ -101,4 +101,7 @@ dependencies {
 
     implementation("com.patrykandpatrick.vico:compose:1.12.0")
     implementation("com.patrykandpatrick.vico:core:1.12.0")
+
+    implementation ("com.google.accompanist:accompanist-pager:0.25.1")
+    implementation ("com.google.accompanist:accompanist-pager-indicators:0.25.1")
 }

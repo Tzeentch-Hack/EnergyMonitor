@@ -77,6 +77,7 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
     var isSum by remember { mutableStateOf(true) }
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState()
     val showTipDialog = remember { mutableStateOf(false) }
+    val textModifier = Modifier.padding(top = 10.dp)
 
     LaunchedEffect(key1 = Unit) {
         showTipDialog.value = true
@@ -181,12 +182,16 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                         }
                     }
 
-                    SpiderCluster(isSum = isSum, deviceList = devices, onClick = { index ->
-                        scope.launch {
-                            selectedDevice = devices[index]
-                            bottomSheetScaffoldState.bottomSheetState.expand()
+                    SpiderCluster(
+                        isSum = isSum,
+                        deviceList = devices,
+                        onTipClick = { index ->
+                            scope.launch {
+                                selectedDevice = devices[index]
+                                bottomSheetScaffoldState.bottomSheetState.expand()
+                            }
                         }
-                    }) {
+                    ) {
                         selectedDevice = DeviceDto("", "", "", "", "", "", "", "")
                     }
 
@@ -201,26 +206,31 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                                 verticalArrangement = Arrangement.Center
                             ) {
                                 Surface(
-                                    modifier = Modifier
-                                        .padding(vertical = 0.dp)
-                                        .semantics { contentDescription = "dragHandleDescription" },
+                                    modifier = Modifier.semantics { contentDescription = "dragHandleDescription" },
                                     color = Color.Gray,
                                     shape = MaterialTheme.shapes.extraLarge
                                 ) {
                                     Box(
-                                        Modifier.size(
-                                            width = 32.dp, height = 4.dp
-                                        )
+                                        Modifier.size(width = 32.dp, height = 4.dp)
                                     )
                                 }
                                 if (devices.isNotEmpty()) {
                                     if (selectedDevice.deviceName.isNotEmpty()) {
-                                        Text(text = selectedDevice.deviceName)
+                                        Text(
+                                            modifier = textModifier,
+                                            text = selectedDevice.deviceName
+                                        )
                                     } else {
-                                        Text(text = "Общая статистика")
+                                        Text(
+                                            modifier = textModifier,
+                                            text = "Общая статистика"
+                                        )
                                     }
                                 } else {
-                                    Text(text = "Нет подключенных девайсов")
+                                    Text(
+                                        modifier = textModifier,
+                                        text = "Нет подключенных девайсов"
+                                    )
                                 }
                             }
                         },
@@ -229,7 +239,7 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                                 Column(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(horizontal = 15.dp),
+                                        .padding(horizontal = 15.dp, vertical = 8.dp),
                                     verticalArrangement = Arrangement.spacedBy(7.dp)
                                 ) {
                                     Text(
@@ -262,7 +272,7 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                                 Column(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(horizontal = 15.dp),
+                                        .padding(horizontal = 15.dp, vertical = 8.dp),
                                     verticalArrangement = Arrangement.spacedBy(7.dp)
                                 ) {
                                     Text(
@@ -364,9 +374,9 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                 }
             }
             if (showTipDialog.value) {
-                TipOfTheDayDialog {
-                    showTipDialog.value = false
-                }
+                TipOfTheDayDialog(
+                    onCancelClick = { showTipDialog.value = false }
+                )
             }
         }
 

@@ -28,7 +28,7 @@ fun TipOfTheDayDialog(onCancelClick: () -> Unit) {
             onCancelClick()
         }, DialogProperties(
             dismissOnBackPress = true,
-            dismissOnClickOutside = false,
+            dismissOnClickOutside = true,
             securePolicy = SecureFlagPolicy.Inherit,
             usePlatformDefaultWidth = true
         )

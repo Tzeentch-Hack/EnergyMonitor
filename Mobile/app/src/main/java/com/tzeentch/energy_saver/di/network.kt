@@ -28,7 +28,7 @@ fun networkModule(): Module = module {
         HttpClient(engineFactory = CIO) {
             expectSuccess = true
             install(HttpTimeout) {
-                requestTimeoutMillis = 100000
+                requestTimeoutMillis = 10000
             }
             defaultRequest {
                 contentType(ContentType.Application.Json.withParameter("charset", "utf-8"))

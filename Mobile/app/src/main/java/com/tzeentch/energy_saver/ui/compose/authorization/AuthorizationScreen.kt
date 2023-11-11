@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.navigation.NavController
 import com.tzeentch.energy_saver.helpers.NavigationItem
+import com.tzeentch.energy_saver.ui.compose.components.Loader
 import com.tzeentch.energy_saver.ui.states.AuthStates
 import com.tzeentch.energy_saver.viewModels.AuthViewModel
 import org.koin.androidx.compose.koinViewModel
@@ -24,11 +25,16 @@ fun Authorization(navController: NavController,viewModel: AuthViewModel = koinVi
         }
 
         is AuthStates.GoToMainScreen->{
-            navController.navigate(NavigationItem.MainScreen.route)
+            navController.navigate(NavigationItem.MainScreen.route){
+                popUpTo(NavigationItem.Authorization.route) {
+                    inclusive = true
+                }
+                launchSingleTop = true
+            }
         }
 
         else -> {
-
+            Loader()
         }
     }
 }

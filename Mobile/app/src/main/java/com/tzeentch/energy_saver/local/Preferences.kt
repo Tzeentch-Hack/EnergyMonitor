@@ -91,7 +91,7 @@ interface PreferenceManager {
         const val PREFS_NAME = "com.tzeentch.workfinder"
         const val PREFS_AUTH_NAME = "PREFS_AUTH_NAME"
         const val PREFS_AUTH_PASSWORD = "PREFS_AUTH_PASSWORD"
-        const val PREFS_TOKEN = "PREFS_AUTH_PASSWORD"
+        const val PREFS_TOKEN = "PREFS_TOKEN"
         const val IP_ADDRESS = "IP_ADDRESS"
     }
 

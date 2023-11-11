@@ -17,3 +17,19 @@ class User(BaseModel):
 
 class UserInDB(User):
     hashed_password: str
+
+
+class Consumer(BaseModel):
+    username: str
+    consumer_id: str
+    enabled: bool
+    device_name: str
+    started_time: str
+    working_time: str
+    watt_consumption: str
+    sum_consumption: str
+    consumption_summary: str
+
+
+class UserInDB(User):
+    hashed_password: str

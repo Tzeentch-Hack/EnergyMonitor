@@ -9,7 +9,9 @@ using System.Windows.Forms;
 namespace ElectricityEmulator
 {
     internal class ElectricityEmulatorCore
-    { 
+    {
+        private Gateway gateway;
+
         public event Action<List<Consumer>>? OnTick;
 
         private List<Consumer> consumers = new List<Consumer>();
@@ -24,6 +26,7 @@ namespace ElectricityEmulator
             timer = new System.Windows.Forms.Timer();
             timer.Interval = Interval;
             timer.Tick += Emulate;
+            gateway = new Gateway();
         }
 
         private void Emulate(object? sender, EventArgs e)
@@ -36,7 +39,7 @@ namespace ElectricityEmulator
                     consumer.TimeWorking = delta;
                     OnTick?.Invoke(consumers);
                     // Send message to server
-                    using HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://www.google.com");
+                    
                 }
             }
         }

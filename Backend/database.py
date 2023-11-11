@@ -23,6 +23,21 @@ class UserInDBSQL(Base):
     hashed_password = Column(String)
 
 
+class DeviceInDBSQL(Base):
+    __tablename__ = "devices"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String)
+    deviceID = Column(String, unique=True)
+    enabled = Column(BOOLEAN, nullable=True)
+    deviceName = Column(String, nullable=True)
+    startedTime = Column(String, nullable=True)
+    workingTime = Column(String, nullable=True)
+    wattConsumption = Column(String, nullable=True)
+    sum_consumption = Column(String, nullable=True)
+    consumptionSummary = Column(String, nullable=True)
+
+
 Base.metadata.create_all(bind=engine)
 SessionLocal = sessionmaker(autoflush=False, bind=engine)
 db = SessionLocal()

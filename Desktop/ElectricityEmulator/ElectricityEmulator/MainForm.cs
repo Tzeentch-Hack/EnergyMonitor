@@ -69,6 +69,18 @@ namespace ElectricityEmulator
             foreach (var consumer in consumers)
             {
                 TypeInConsole(consumer.ToString());
+                string consumerID = consumer.ID;
+                foreach (DataGridViewRow row in DataGrid.Rows)
+                {
+                    if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == consumerID)
+                    {
+                        string[] values = consumer.ToDataGridRow();
+                        for (int i = 0; i < values.Length; i++)
+                        {
+                            row.Cells[i].Value = values[i];
+                        }
+                    }
+                }
             }
         }
 

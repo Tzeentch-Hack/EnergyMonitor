@@ -51,3 +51,15 @@ class PredictWindowData(BaseModel):
 class AnomalyDetectionData(BaseModel):
     data: List[List[float]]
     THRESHOLD: float
+
+
+class ConsumptionHistoryRaw(BaseModel):
+    username: str
+    device_id: str
+    watt_consumption: str
+    sum_consumption: str
+    date_time: str
+
+
+class ConsumptionHistoryList(BaseModel):
+    data: List[ConsumptionHistoryRaw]

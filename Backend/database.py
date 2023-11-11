@@ -43,7 +43,7 @@ class DeviceWattHistory(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String)
-    deviceID = Column(String, unique=True)
+    deviceID = Column(String)
     wattConsumption = Column(String, nullable=True)
     sumConsumption = Column(String, nullable=True)
     dateTime = Column(String, nullable=True)

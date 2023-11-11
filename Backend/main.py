@@ -60,6 +60,19 @@ def delete_device(device_id: str):
     return {"message": f"Device with id {device_id} was disabled"}
 
 
+@app.get("/get_all_statistics", tags=["Energy"], response_model=models.ConsumptionHistoryList)
+def get_all_statistics(current_user: Annotated[models.User, Depends(authorization.get_current_active_user)]):
+    response = models.ConsumptionHistoryList(data=monitoring_core.get_history(current_user.username))
+    return response
+
+
+@app.get("/get_all_statistics_by_device_id", tags=["Energy"])
+def get_all_statistics_by_device_id(current_user: Annotated[models.User, Depends(authorization.get_current_active_user)],
+                                    device_id: str):
+    response = models.ConsumptionHistoryList(data=monitoring_core.get_history_by_device_id(device_id))
+    return response
+
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080)
 

@@ -20,6 +20,8 @@ def calculate(consumers_list: list[models.Consumer], interval: int):
             consumer_from_db.wattConsumption = consumer.watt_consumption
             consumer_from_db.sum_consumption = summary_consumption * tarif / 3600 / 1000
             consumer_from_db.consumptionSummary = str(summary_consumption)
+            consumer.sum_consumption = consumer_from_db.sum_consumption
+            consumer.consumption_summary = consumer_from_db.consumptionSummary
             database.db.merge(consumer_from_db)
         else:
             new_device = database.DeviceInDBSQL(
@@ -69,12 +71,43 @@ def convert_consumer(consumer_from_sql: database.DeviceInDBSQL):
 
 def save_history(consumers_list: list[models.Consumer]):
     for consumer in consumers_list:
+        watt = float(consumer.watt_consumption.replace(',', '.'))
         history_stamp = database.DeviceWattHistory(
             username=consumer.username,
             deviceID=consumer.consumer_id,
             wattConsumption=consumer.watt_consumption,
-            sumConsumption=consumer.sum_consumption,
+            sumConsumption=str(watt * tarif / 3600 / 1000),
             dateTime=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         )
         database.db.add(history_stamp)
         database.db.commit()
+
+
+def get_history(username: str):
+    history = database.db.query(database.DeviceWattHistory).filter_by(username=username).all()
+    result = []
+    for raw in history:
+        converted_raw = models.ConsumptionHistoryRaw(
+            username=raw.username,
+            device_id=raw.deviceID,
+            watt_consumption=raw.wattConsumption,
+            sum_consumption=raw.sumConsumption,
+            date_time=raw.dateTime
+        )
+        result.append(converted_raw)
+    return result
+
+
+def get_history_by_device_id(device_id: str):
+    history = database.db.query(database.DeviceWattHistory).filter_by(deviceID=device_id).all()
+    result = []
+    for raw in history:
+        converted_raw = models.ConsumptionHistoryRaw(
+            username=raw.username,
+            device_id=raw.deviceID,
+            watt_consumption=raw.wattConsumption,
+            sum_consumption=raw.sumConsumption,
+            date_time=raw.dateTime
+        )
+        result.append(converted_raw)
+    return result

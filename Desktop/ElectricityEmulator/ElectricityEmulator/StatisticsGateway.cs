@@ -19,8 +19,8 @@ namespace ElectricityEmulator.Gateway
     {
         static HttpClient httpClient = new HttpClient();
 
-        //private string API_URL = "http://16.171.238.180:8080";
-        private string API_URL = "http://127.0.0.1:8080";
+        private string API_URL = "http://16.171.238.180:8080";
+        //private string API_URL = "http://127.0.0.1:8080";
 
         public async Task PostUpdate(ConsumerList data)
         {

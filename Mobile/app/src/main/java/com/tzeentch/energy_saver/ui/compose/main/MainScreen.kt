@@ -144,20 +144,7 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                             Text(text = "So'm")
                         }
                     }
-                    SpiderCluster(
-                        legVisibility = listOf(
-                            true,
-                            true,
-                            true,
-                            true,
-                            true,
-                            true,
-                            true,
-                            true,
-                            true,
-                            true
-                        )
-                    )
+                    SpiderCluster(legVisibility = listOf(true, true, true, true, true, true, true, true, true, true))
                     BottomSheetScaffold(
                         scaffoldState = bottomSheetScaffoldState,
                         sheetDragHandle = {

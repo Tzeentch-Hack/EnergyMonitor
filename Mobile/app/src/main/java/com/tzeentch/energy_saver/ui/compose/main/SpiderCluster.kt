@@ -4,15 +4,20 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.Paint
 import android.graphics.PathMeasure
+import android.util.Log
 import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.StartOffset
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -20,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.center
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
@@ -33,10 +39,9 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.tzeentch.energy_saver.R
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.random.Random
@@ -59,7 +64,7 @@ fun DrawScope.drawElectricityEffect(path: Path, progress: Float, strokeWidth: Fl
     drawPath(
         path = effectPath,
         color = Color(0xFF99CCFF),
-        style = Stroke(width = strokeWidth,) // Adjust for rounded ends
+        style = Stroke(width = strokeWidth) // Adjust for rounded ends
     )
 }
 
@@ -100,37 +105,86 @@ fun SpiderCluster(legVisibility: List<Boolean>) {
     val bodyScaleHeight = bodyImageBitmap.height * bodyImageScale
 
     val animatedProgress = remember { Animatable(1f) }
-    val randomDelay = remember { Random.nextInt(0, 1000) }
+    val randomDelay = remember { Random.nextInt(500, 1000) }
 
-    LaunchedEffect(key1 = "electricityAnimation") {
-        delay(randomDelay.toLong())
+    val interactionSource = remember { MutableInteractionSource() }
+
+    LaunchedEffect(key1 = true) {
         animatedProgress.animateTo(
             targetValue = 0f,
             animationSpec = infiniteRepeatable(
                 animation = tween(durationMillis = 1000, easing = LinearEasing),
-                repeatMode = RepeatMode.Restart
+                repeatMode = RepeatMode.Restart,
+                initialStartOffset = StartOffset(randomDelay)
             )
         )
     }
 
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Canvas(modifier = Modifier.size(canvasSize)) {
-            val center = Offset(size.width / 2, size.height / 2)
+        // Draw the spider's legs
+        for (i in 0 until 10) {
+            if (legVisibility.getOrElse(i) { false }) {
+                val baseAngle = Math.PI / 5 * (i - 5)
+                val angles = when (i) {
+                    0, 5 -> listOf(baseAngle, baseAngle)
+                    9, 4 -> listOf(
+                        baseAngle,
+                        baseAngle - Math.PI / 4.3,
+                        baseAngle + Math.PI / 18,
+                        baseAngle - Math.PI / 6.3
+                    )
 
-            // Function to draw a leg with given segments and angles
-            fun drawLeg(segmentAngles: List<Float>, mColor: Color = Color.Red, text: String) {
+                    1, 6 -> listOf(
+                        baseAngle,
+                        baseAngle + Math.PI / 4.5,
+                        baseAngle - Math.PI / 18,
+                        baseAngle + Math.PI / 6.3
+                    )
+
+                    2, 7 -> listOf(
+                        baseAngle,
+                        baseAngle + Math.PI / 20,
+                        baseAngle - Math.PI / 5,
+                        baseAngle + Math.PI / 10
+                    )
+
+                    3 -> listOf(
+                        baseAngle,
+                        baseAngle - Math.PI / 15,
+                        baseAngle + Math.PI / 18,
+                        baseAngle - Math.PI / 10
+                    )
+
+                    8 -> listOf(
+                        baseAngle,
+                        baseAngle - Math.PI / 15,
+                        baseAngle + Math.PI / 15,
+                        baseAngle - Math.PI / 10
+                    )
+
+                    else -> listOf(
+                        baseAngle,
+                        baseAngle - Math.PI / 9.3,
+                        baseAngle + Math.PI / 10,
+                        baseAngle - Math.PI / 6.3
+                    )
+                }
+                val center = Offset(canvasSize.value / 2, canvasSize.value / 2)
+
+                // Function to draw a leg with given segments and angles
                 val path = Path()
                 path.moveTo(center.x, center.y)
 
                 var currentPoint = center
-                segmentAngles.forEachIndexed { index, angle ->
+                angles.map { it.toFloat() }.forEachIndexed { index, angle ->
                     val nextPoint = Offset(
                         currentPoint.x + (legSegmentLength * cos(angle)).toFloat(),
                         currentPoint.y + (legSegmentLength * sin(angle)).toFloat()
                     )
 
                     // Define control points for the Bezier curve. Adjust these for smoother curves.
-                    val controlPoint1 = Offset(currentPoint.x, (currentPoint.y + nextPoint.y) / 2)
+                    val controlPoint1 =
+                        Offset(currentPoint.x, (currentPoint.y + nextPoint.y) / 2)
                     val controlPoint2 = Offset(nextPoint.x, (currentPoint.y + nextPoint.y) / 2)
 
                     if (index == 0) {
@@ -150,67 +204,73 @@ fun SpiderCluster(legVisibility: List<Boolean>) {
                 }
 
                 val gradient = Brush.linearGradient(
-                    colors = listOf(Color(0xFF000000), Color(0xFFFFFFFF), Color(0xFF240588), Color(0xFF76568A)),
+                    colors = listOf(
+                        Color(0xFF000000),
+                        Color(0xFFFFFFFF),
+                        Color(0xFF240588),
+                        Color(0xFF76568A)
+                    ),
                     start = Offset(center.x, center.y),
                     end = currentPoint,
                     tileMode = TileMode.Clamp
                 )
-                drawPath(
-                    path = path,
-                    brush = gradient,
-                    style = Stroke(width = strokeWidth)
-                )
+                Canvas(modifier = Modifier.size(120.dp)) {
+                    drawPath(
+                        path = path,
+                        brush = gradient,
+                        style = Stroke(width = strokeWidth)
+                    )
 
-                val legPath = buildLegPath(center, path, segmentAngles, legSegmentLength)
-                drawElectricityEffect(legPath, animatedProgress.value, strokeWidth)
+                    val legPath =
+                        buildLegPath(center, path, angles.map { it.toFloat() }, legSegmentLength)
+                    drawElectricityEffect(legPath, animatedProgress.value, strokeWidth)
+                }
 
                 val tipImageTopLeft = Offset(
-                    currentPoint.x - tipScaleWidth / 2,
-                    currentPoint.y - tipScaleHeight / 2
+                    currentPoint.x - tipScaleWidth / 1.2f,
+                    currentPoint.y - tipScaleHeight / 1.2f
                 )
-                drawImage(
-                    image = Bitmap.createScaledBitmap(
-                        tipImageBitmap.asAndroidBitmap(),
-                        tipScaleWidth.toInt(),
-                        tipScaleHeight.toInt(),
-                        false
-                    ).asImageBitmap(),
-                    topLeft = tipImageTopLeft
-                )
-
-                drawContext.canvas.nativeCanvas.drawText(
-                    text,
-                    currentPoint.x,
-                    currentPoint.y + tipCircleRadius / 3, // Adjust this value to center the text vertically
-                    Paint().apply {
-                        color = android.graphics.Color.WHITE
-                        textSize = tipCircleRadius - 8.dp.toPx() // Set the text size relative to the tip circle size
-                        textAlign = Paint.Align.CENTER
+                Canvas(modifier = Modifier
+                    .size(50.dp)
+                    .offset { IntOffset(tipImageTopLeft.x.toInt(), tipImageTopLeft.y.toInt()) }
+                    .clickable(
+                        interactionSource = interactionSource,
+                        indication = null
+                    ) {
+                        Log.e("TAG", "SpiderCluster: $i")
                     }
-                )
-            }
-
-            // Draw the spider's legs
-            for (i in 0 until 10) {
-                if (legVisibility.getOrElse(i) { false }) {
-                    val baseAngle = Math.PI / 5 * (i - 5)
-                    val angles = when (i) {
-                        0, 5 -> listOf(baseAngle, baseAngle)
-                        9, 4 -> listOf(baseAngle, baseAngle - Math.PI / 4.3, baseAngle + Math.PI / 18, baseAngle - Math.PI / 6.3)
-                        1, 6 -> listOf(baseAngle, baseAngle + Math.PI / 4.5, baseAngle - Math.PI / 18, baseAngle + Math.PI / 6.3)
-                        2, 7 -> listOf(baseAngle, baseAngle + Math.PI / 20, baseAngle - Math.PI / 5, baseAngle + Math.PI / 10)
-                        3 -> listOf(baseAngle, baseAngle - Math.PI / 15, baseAngle + Math.PI / 18, baseAngle - Math.PI / 10)
-                        8 -> listOf(baseAngle, baseAngle - Math.PI / 15, baseAngle + Math.PI / 15, baseAngle - Math.PI / 10)
-                        else -> listOf(baseAngle, baseAngle - Math.PI / 9.3, baseAngle + Math.PI / 10, baseAngle - Math.PI / 6.3)
-                    }
-                    drawLeg(segmentAngles = angles.map { it.toFloat() }, text = "100W")
+                ) {
+                    drawImage(
+                        image = Bitmap.createScaledBitmap(
+                            tipImageBitmap.asAndroidBitmap(),
+                            this.size.width.toInt(),
+                            this.size.height.toInt(),
+                            false
+                        ).asImageBitmap(),
+                        topLeft = Offset.Zero
+                    )
+                    drawContext.canvas.nativeCanvas.drawText(
+                        "100W",
+                        size.center.x,
+                        size.center.y + tipCircleRadius / 3, // Adjust this value to center the text vertically
+                        Paint().apply {
+                            color = android.graphics.Color.WHITE
+                            textSize =
+                                tipCircleRadius - 10.dp.toPx() // Set the text size relative to the tip circle size
+                            textAlign = Paint.Align.CENTER
+                        }
+                    )
                 }
             }
-
-            val bodyImageTopLeft = Offset(
-                center.x - bodyScaleWidth / 2,
-                center.y - bodyScaleHeight / 2
-            )
+        }
+        Canvas(modifier = Modifier
+            .size(120.dp)
+            .clickable(
+                interactionSource = interactionSource,
+                indication = null
+            ) { /* TODO: Do logic */ }) {
+            val bodyImageTopLeft =
+                Offset(center.x - bodyScaleWidth / 2, center.y - bodyScaleHeight / 2)
 
             // Draw the spider's body
             drawImage(
@@ -221,6 +281,17 @@ fun SpiderCluster(legVisibility: List<Boolean>) {
                     false
                 ).asImageBitmap(),
                 topLeft = bodyImageTopLeft
+            )
+
+            drawContext.canvas.nativeCanvas.drawText(
+                "100W",
+                size.center.x,
+                size.center.y + bodyRadius / 3.5f, // Adjust this value to center the text vertically
+                Paint().apply {
+                    color = android.graphics.Color.WHITE
+                    textSize = bodyRadius - 10.dp.toPx() // Set the text size relative to the tip circle size
+                    textAlign = Paint.Align.CENTER
+                }
             )
         }
     }

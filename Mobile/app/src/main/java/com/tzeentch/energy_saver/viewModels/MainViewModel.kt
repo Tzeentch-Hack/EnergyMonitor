@@ -43,6 +43,21 @@ class MainViewModel constructor(
         }
     }
 
+    fun disableDevice(id: String) {
+        viewModelScope.launch {
+            repository.disableDevices(ip = prefs.getIp(), token = prefs.getToken(), id = id)
+                .collect { result ->
+                    result.isLoading {
+
+                    }.onSuccess {
+
+                    }.onFailure {
+
+                    }
+                }
+        }
+    }
+
     private fun getDeviceInfo() {
         viewModelScope.launch() {
             while (true) {

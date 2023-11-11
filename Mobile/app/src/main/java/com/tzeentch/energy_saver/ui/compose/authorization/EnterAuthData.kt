@@ -53,7 +53,7 @@ fun EnterAuthData(resError:String, onRegClick:(name:String, pass:String)->Unit, 
         verticalArrangement = Arrangement.spacedBy(30.dp)
     ) {
 
-        Text(text = "Регистрация", fontSize = 23.sp, color = Color(0xFF284779))
+        Text(text = "Регистрация", fontSize = 23.sp, color = Color.White)
 
         CustomOutlinedTextField(defText = name,
             defTitle = "Имя",

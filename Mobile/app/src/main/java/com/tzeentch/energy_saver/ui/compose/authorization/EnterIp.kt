@@ -41,7 +41,7 @@ fun EnterIp(onIpEnter:(ip:String)->Unit){
         verticalArrangement = Arrangement.spacedBy(30.dp)
     ) {
 
-        Text(text = "Ввод серверного адреса", fontSize = 23.sp, color = Color(0xFF284779))
+        Text(text = "Ввод серверного адреса", fontSize = 23.sp, color = Color.White)
 
         CustomOutlinedTextField(defText = ip,
             defTitle = "IP",

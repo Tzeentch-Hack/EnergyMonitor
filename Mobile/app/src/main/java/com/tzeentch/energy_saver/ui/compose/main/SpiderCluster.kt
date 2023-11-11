@@ -43,6 +43,8 @@ import com.patrykandpatrick.vico.core.extension.sumByFloat
 import com.tzeentch.energy_saver.R
 import com.tzeentch.energy_saver.remote.dto.DeviceDto
 import kotlin.math.cos
+import kotlin.math.floor
+import kotlin.math.roundToInt
 import kotlin.math.sin
 import kotlin.random.Random
 
@@ -86,7 +88,12 @@ fun buildLegPath(center: Offset, path: Path, angles: List<Float>, segmentLength:
 
 @SuppressLint("RememberReturnType")
 @Composable
-fun SpiderCluster(deviceList: List<DeviceDto>, isSum: Boolean,onClick:(index:Int)->Unit,onBodyClick:()->Unit) {
+fun SpiderCluster(
+    deviceList: List<DeviceDto>,
+    isSum: Boolean,
+    onClick: (index: Int) -> Unit,
+    onBodyClick: () -> Unit
+) {
     val density = LocalDensity.current
     val canvasSize = 300.dp
     val bodyRadius = with(density) { 60.dp.toPx() }
@@ -109,7 +116,7 @@ fun SpiderCluster(deviceList: List<DeviceDto>, isSum: Boolean,onClick:(index:Int
 
     val interactionSource = remember { MutableInteractionSource() }
 
-    LaunchedEffect(key1 = true) {
+    LaunchedEffect(key1 = Unit) {
         animatedProgress.animateTo(
             targetValue = 0f,
             animationSpec = infiniteRepeatable(
@@ -123,7 +130,7 @@ fun SpiderCluster(deviceList: List<DeviceDto>, isSum: Boolean,onClick:(index:Int
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         // Draw the spider's legs
         for (i in 0 until 10) {
-            if (i < deviceList.size) {
+            if (i < deviceList.size && deviceList[i].isEnabled == "True") {
                 val baseAngle = Math.PI / 5 * (i - 5)
                 val angles = when (i) {
                     0, 5 -> listOf(baseAngle, baseAngle)
@@ -250,8 +257,10 @@ fun SpiderCluster(deviceList: List<DeviceDto>, isSum: Boolean,onClick:(index:Int
                         topLeft = Offset.Zero
                     )
                     drawContext.canvas.nativeCanvas.drawText(
-                        if (!isSum) deviceList[i].wattConsumption else deviceList[i].sumConsumption
-                            ?: "0",
+                        if (!isSum) deviceList[i].wattConsumption.toFloat().roundToInt()
+                            .toString() else (floor(
+                            deviceList[i].sumConsumption?.toFloat() ?: (0f * 100.0f)
+                        ) / 100.0f).toString(),
                         size.center.x,
                         size.center.y + tipCircleRadius / 3, // Adjust this value to center the text vertically
                         Paint().apply {
@@ -269,7 +278,7 @@ fun SpiderCluster(deviceList: List<DeviceDto>, isSum: Boolean,onClick:(index:Int
             .clickable(
                 interactionSource = interactionSource,
                 indication = null
-            ) { /* TODO: Do logic */ }) {
+            ) { onBodyClick() }) {
             val bodyImageTopLeft =
                 Offset(center.x - bodyScaleWidth / 2, center.y - bodyScaleHeight / 2)
 
@@ -285,7 +294,14 @@ fun SpiderCluster(deviceList: List<DeviceDto>, isSum: Boolean,onClick:(index:Int
             )
 
             drawContext.canvas.nativeCanvas.drawText(
-                if (!isSum) deviceList.sumByFloat { it.wattConsumption.toFloat() }.toString() else deviceList.sumByFloat { it.sumConsumption?.toFloat()?:0f }.toString(),
+                if (!isSum) deviceList.sumByFloat {
+                    it.wattConsumption.substringBefore(',').toFloat()
+                }.roundToInt()
+                    .toString() else deviceList.sumByFloat {
+                    floor(
+                        it.sumConsumption?.toFloat() ?: (0f * 100.0f)
+                    ) / 100.0f
+                }.toString(),
                 size.center.x,
                 size.center.y + bodyRadius / 3.5f, // Adjust this value to center the text vertically
                 Paint().apply {

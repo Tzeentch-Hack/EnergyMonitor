@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.Paint
 import android.graphics.PathMeasure
-import android.util.Log
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
@@ -12,7 +11,6 @@ import androidx.compose.animation.core.StartOffset
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -41,7 +39,9 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import com.patrykandpatrick.vico.core.extension.sumByFloat
 import com.tzeentch.energy_saver.R
+import com.tzeentch.energy_saver.remote.dto.DeviceDto
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.random.Random
@@ -86,7 +86,7 @@ fun buildLegPath(center: Offset, path: Path, angles: List<Float>, segmentLength:
 
 @SuppressLint("RememberReturnType")
 @Composable
-fun SpiderCluster(legVisibility: List<Boolean>) {
+fun SpiderCluster(deviceList: List<DeviceDto>, isSum: Boolean,onClick:(index:Int)->Unit,onBodyClick:()->Unit) {
     val density = LocalDensity.current
     val canvasSize = 300.dp
     val bodyRadius = with(density) { 60.dp.toPx() }
@@ -123,7 +123,7 @@ fun SpiderCluster(legVisibility: List<Boolean>) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         // Draw the spider's legs
         for (i in 0 until 10) {
-            if (legVisibility.getOrElse(i) { false }) {
+            if (i < deviceList.size) {
                 val baseAngle = Math.PI / 5 * (i - 5)
                 val angles = when (i) {
                     0, 5 -> listOf(baseAngle, baseAngle)
@@ -237,7 +237,7 @@ fun SpiderCluster(legVisibility: List<Boolean>) {
                         interactionSource = interactionSource,
                         indication = null
                     ) {
-                        Log.e("TAG", "SpiderCluster: $i")
+                        onClick(i)
                     }
                 ) {
                     drawImage(
@@ -250,7 +250,8 @@ fun SpiderCluster(legVisibility: List<Boolean>) {
                         topLeft = Offset.Zero
                     )
                     drawContext.canvas.nativeCanvas.drawText(
-                        "100W",
+                        if (!isSum) deviceList[i].wattConsumption else deviceList[i].sumConsumption
+                            ?: "0",
                         size.center.x,
                         size.center.y + tipCircleRadius / 3, // Adjust this value to center the text vertically
                         Paint().apply {
@@ -284,12 +285,13 @@ fun SpiderCluster(legVisibility: List<Boolean>) {
             )
 
             drawContext.canvas.nativeCanvas.drawText(
-                "100W",
+                if (!isSum) deviceList.sumByFloat { it.wattConsumption.toFloat() }.toString() else deviceList.sumByFloat { it.sumConsumption?.toFloat()?:0f }.toString(),
                 size.center.x,
                 size.center.y + bodyRadius / 3.5f, // Adjust this value to center the text vertically
                 Paint().apply {
                     color = android.graphics.Color.WHITE
-                    textSize = bodyRadius - 10.dp.toPx() // Set the text size relative to the tip circle size
+                    textSize =
+                        bodyRadius - 10.dp.toPx() // Set the text size relative to the tip circle size
                     textAlign = Paint.Align.CENTER
                 }
             )

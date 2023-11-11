@@ -41,7 +41,7 @@ fun CustomOutlinedTextField(
                 .fillMaxWidth()
                 .semantics { this.contentDescription = "InputTextField" },
             value = defText,
-            placeholder = { Text(text = hint) },
+            placeholder = { Text(text = hint,color=Color.Gray) },
             onValueChange = {
                 onValueChange(it)
             },

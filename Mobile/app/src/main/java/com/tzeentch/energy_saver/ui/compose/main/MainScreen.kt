@@ -1,5 +1,6 @@
 package com.tzeentch.energy_saver.ui.compose.main
 
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.BottomSheetScaffold
@@ -35,6 +35,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -42,8 +43,19 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.patrykandpatrick.vico.compose.axis.axisLabelComponent
+import com.patrykandpatrick.vico.compose.axis.horizontal.rememberBottomAxis
+import com.patrykandpatrick.vico.compose.axis.vertical.rememberStartAxis
+import com.patrykandpatrick.vico.compose.chart.Chart
+import com.patrykandpatrick.vico.compose.chart.line.lineChart
+import com.patrykandpatrick.vico.compose.chart.line.lineSpec
+import com.patrykandpatrick.vico.core.chart.composed.plus
+import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
+import com.patrykandpatrick.vico.core.entry.FloatEntry
+import com.patrykandpatrick.vico.core.entry.composed.plus
 import com.tzeentch.energy_saver.R
 import com.tzeentch.energy_saver.helpers.NavigationItem
+import com.tzeentch.energy_saver.remote.dto.DeviceDto
 import com.tzeentch.energy_saver.ui.compose.components.IpDialog
 import com.tzeentch.energy_saver.ui.states.MainStates
 import com.tzeentch.energy_saver.viewModels.MainViewModel
@@ -58,6 +70,13 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
     val openChangeIPDialog = remember { mutableStateOf(false) }
     var isSum by remember { mutableStateOf(false) }
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState()
+
+
+    val devices = viewModel.deviceList.collectAsState().value
+
+    var selectedDevice by remember {
+        mutableStateOf(DeviceDto("", "", "", "", "", "", "", ""))
+    }
 
     when (viewModel.homeState.collectAsState().value) {
         is MainStates.Main -> {
@@ -117,9 +136,19 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                     }
                 },
             ) {
-                Box(modifier = Modifier.fillMaxSize()) {
+                Box(modifier = Modifier
+                    .fillMaxSize()
+                    .pointerInput(Unit) {
+                        detectTapGestures(onTap = {
+                            scope.launch {
+                                bottomSheetScaffoldState.bottomSheetState.partialExpand()
+                            }
+                        })
+                    }) {
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(10.dp),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         IconButton(onClick = { scope.launch { drawerState.open() } }) {
@@ -135,21 +164,28 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text("Watt")
-                            Switch(
-                                checked = isSum,
-                                onCheckedChange = {
-                                    isSum = it
-                                }
-                            )
+                            Switch(checked = isSum, onCheckedChange = {
+                                isSum = it
+                            })
                             Text(text = "So'm")
                         }
                     }
-                    SpiderCluster(legVisibility = listOf(true, true, true, true, true, true, true, true, true, true))
+
+                    SpiderCluster(isSum = isSum, deviceList = devices, onClick = { index ->
+                        scope.launch {
+                            bottomSheetScaffoldState.bottomSheetState.expand()
+                        }
+                    }) {
+                        selectedDevice = DeviceDto("", "", "", "", "", "", "", "")
+                    }
+
                     BottomSheetScaffold(
                         scaffoldState = bottomSheetScaffoldState,
                         sheetDragHandle = {
                             Column(
-                                modifier = Modifier.fillMaxWidth().padding(vertical = 14.dp),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 14.dp),
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ) {
@@ -161,41 +197,70 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                                     shape = MaterialTheme.shapes.extraLarge
                                 ) {
                                     Box(
-                                        Modifier
-                                            .size(
-                                                width = 32.dp,
-                                                height = 4.dp
+                                        Modifier.size(
+                                                width = 32.dp, height = 4.dp
                                             )
                                     )
                                 }
-                                Text(modifier = Modifier.padding(vertical = 8.dp), text = "Refrigerator 228")
+                                if (devices.isNotEmpty()) {
+                                    if (selectedDevice.deviceName.isNotEmpty()) {
+                                        Text(text = selectedDevice.deviceName)
+                                    } else {
+                                        Text(text = "Общая статистика по 10 девайсам")
+                                    }
+                                } else {
+                                    Text(text = "Нет подключенных девайсов")
+                                }
                             }
                         },
                         sheetContent = {
-                            Box(
-                                Modifier
-                                    .fillMaxWidth()
-                                    .height(128.dp),
-                                contentAlignment = Alignment.TopCenter
-                            ) {
-                                Text("Swipe up to expand sheet")
+                            val list = listOf(1, 5, 10, 3, 4, 10, 30, 50, 30, 10, 20, 30)
+                            val lineChart1 = lineChart(
+                                lines = listOf(
+                                    lineSpec(
+                                        lineThickness = 3.dp,
+                                        lineColor = Color(0xFF7F00FF),
+                                    ),
+                                )
+                            )
+                            val lineChart2 = lineChart(
+                                lines = listOf(
+                                    lineSpec(
+                                        lineThickness = 3.dp,
+                                        lineColor = Color(0xFF102C54),
+                                    ),
+                                )
+                            )
+                            val entryCollections1 by remember {
+                                mutableStateOf(
+                                    list.subList(0, 9).mapIndexed { index, watt ->
+                                        FloatEntry(
+                                            x = index.toFloat(), y = watt.toFloat()
+                                        )
+                                    }.toList()
+                                )
                             }
-                            Column(
-                                Modifier
-                                    .fillMaxWidth()
-                                    .padding(64.dp),
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Text("Sheet content")
-                                Spacer(Modifier.height(20.dp))
-                                Button(
-                                    onClick = {
-                                        scope.launch { bottomSheetScaffoldState.bottomSheetState.partialExpand() }
-                                    }
-                                ) {
-                                    Text("Click to collapse sheet")
-                                }
+                            val entryCollections2 by remember {
+                                mutableStateOf(
+                                    list.subList(8, list.size).mapIndexed { index, watt ->
+                                        FloatEntry(
+                                            x = index.toFloat() + 8, y = watt.toFloat()
+                                        )
+                                    }.toList()
+                                )
                             }
+                            val chartEntryModel1 = ChartEntryModelProducer(entryCollections1)
+                            val chartEntryModel2 = ChartEntryModelProducer(entryCollections2)
+                            val composedChartEntryModelProducer =
+                                chartEntryModel1 + chartEntryModel2
+                            Chart(
+                                chart = remember(
+                                    lineChart1, lineChart2
+                                ) { lineChart1 + lineChart2 },
+                                chartModelProducer = composedChartEntryModelProducer,
+                                startAxis = rememberStartAxis(axisLabelComponent(color = Color.White)),
+                                bottomAxis = rememberBottomAxis(axisLabelComponent(color = Color.White)),
+                            )
                         },
                         content = {},
                     )

@@ -56,6 +56,7 @@ namespace ElectricityEmulator.Core
                         sum_consumption = "0",
                         consumption_summary = "0"
                     };
+                    sendingList.Add(consumerData);
                 }
             }
             OnTick?.Invoke(consumers);

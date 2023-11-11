@@ -2,6 +2,8 @@ import models
 import database
 import datetime
 
+tarif = 195
+
 
 def calculate(consumers_list: list[models.Consumer], interval: int):
     for consumer in consumers_list:
@@ -11,9 +13,13 @@ def calculate(consumers_list: list[models.Consumer], interval: int):
             consumer_from_db.enabled = consumer.enabled
             consumer_from_db.deviceName = consumer_from_db.deviceName
             consumer_from_db.workingTime = consumer_from_db.workingTime
+            watt = float(consumer.watt_consumption.replace(',', '.'))
+            working_time_float = float(consumer_from_db.workingTime.replace(',', '.'))
+            summary_consumption = working_time_float / 1000 * watt
+
             consumer_from_db.wattConsumption = consumer.watt_consumption
-            consumer_from_db.sum_consumption = consumer.sum_consumption
-            consumer_from_db.consumptionSummary = consumer.consumption_summary
+            consumer_from_db.sum_consumption = summary_consumption * tarif / 3600 / 1000
+            consumer_from_db.consumptionSummary = str(summary_consumption)
             database.db.merge(consumer_from_db)
         else:
             new_device = database.DeviceInDBSQL(
@@ -39,6 +45,15 @@ def get_all_consumers(username: str):
     return converted_сonsumers
 
 
+def disable_consumer(device_id: str):
+    consumer_from_db = database.db.query(database.DeviceInDBSQL).filter_by(deviceID=device_id).first()
+    if consumer_from_db:
+        consumer_from_db.enabled = "False"
+        consumer_from_db.wattConsumption = 0
+        database.db.merge(consumer_from_db)
+        database.db.commit()
+
+
 def convert_consumer(consumer_from_sql: database.DeviceInDBSQL):
     converted_consumer = models.Consumer(username=consumer_from_sql.username,
                                          consumer_id=consumer_from_sql.deviceID,
@@ -50,3 +65,16 @@ def convert_consumer(consumer_from_sql: database.DeviceInDBSQL):
                                          sum_consumption=consumer_from_sql.sum_consumption,
                                          consumption_summary=consumer_from_sql.consumptionSummary)
     return converted_consumer
+
+
+def save_history(consumers_list: list[models.Consumer]):
+    for consumer in consumers_list:
+        history_stamp = database.DeviceWattHistory(
+            username=consumer.username,
+            deviceID=consumer.consumer_id,
+            wattConsumption=consumer.watt_consumption,
+            sumConsumption=consumer.sum_consumption,
+            dateTime=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        )
+        database.db.add(history_stamp)
+        database.db.commit()

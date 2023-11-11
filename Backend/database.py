@@ -45,7 +45,8 @@ class DeviceWattHistory(Base):
     username = Column(String)
     deviceID = Column(String, unique=True)
     wattConsumption = Column(String, nullable=True)
-    timeStamp = Column(String, nullable=True)
+    sumConsumption = Column(String, nullable=True)
+    dateTime = Column(String, nullable=True)
 
 
 Base.metadata.create_all(bind=engine)

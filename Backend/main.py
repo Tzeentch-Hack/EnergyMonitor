@@ -45,12 +45,19 @@ def root():
 def post_device_statistics(interval: int, list_consumers: models.ConsumerList):
     print(list_consumers.data)
     monitoring_core.calculate(list_consumers.data, interval)
+    monitoring_core.save_history(list_consumers.data)
     return {"message": "Devices have been updated"}
 
 
 @app.get("/device_statistics", tags=["Energy"], response_model=list[models.Consumer])
 def get_device_statistics(current_user: Annotated[models.User, Depends(authorization.get_current_active_user)]):
     return monitoring_core.get_all_consumers(current_user.username)
+
+
+@app.post("/disable_device", tags=["Energy"])
+def delete_device(device_id: str):
+    monitoring_core.disable_consumer(device_id)
+    return {"message": f"Device with id {device_id} was disabled"}
 
 
 if __name__ == "__main__":

@@ -54,16 +54,19 @@ def detect_anomaly_in_window(window, model, scaler, threshold):
     return reconstruction_error > threshold
 
 if __name__ == "__main__":
-    #train_and_save_model('data/temp_data.csv', 'anomaly_detection.h5', 'anomaly_detection_scaler.pkl')
-
-    loaded_model, loaded_scaler = load_model_and_scaler('models/anomaly_detection.h5',
-                                                        'models/anomaly_detection_scaler.pkl')
-
-    new_data_chunk = pd.read_csv('data/temp_data.csv')
-    print('new_data_chunk', new_data_chunk)
-    if len(new_data_chunk) >= WINDOW_SIZE:
-        window = create_single_window(new_data_chunk.values, WINDOW_SIZE)
-        anomaly_detected = detect_anomaly_in_window(window, loaded_model, loaded_scaler, THRESHOLD)
-        print('Anomaly Detected:', anomaly_detected[0])
+    train = False
+    if train:
+        train_and_save_model(data_path='data/temp_data.csv', model_path='anomaly_detection.h5', scaler_path='anomaly_detection_scaler.pkl')
     else:
-        print("Insufficient data for anomaly detection.")
+        loaded_model, loaded_scaler = load_model_and_scaler('models/anomaly_detection.h5',
+                                                            'models/anomaly_detection_scaler.pkl')
+
+        new_data_chunk = pd.read_csv('data/temp_data.csv')
+        print('new_data_chunk', new_data_chunk)
+        if len(new_data_chunk) >= WINDOW_SIZE:
+            window = create_single_window(new_data_chunk.values, WINDOW_SIZE)
+            print('window', window, type(window))
+            anomaly_detected = detect_anomaly_in_window(window.tolist(), loaded_model, loaded_scaler, THRESHOLD)
+            print('Anomaly Detected:', anomaly_detected[0])
+        else:
+            print("Insufficient data for anomaly detection.")

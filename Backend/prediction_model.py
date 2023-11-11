@@ -55,7 +55,7 @@ def predict_single_window(model, scaler, window_data):
     return prediction_rescaled
 
 def format_predictions(predictions):
-    return np.array([["{:.1f}".format(num) for num in row] for row in predictions])
+    return [round(float(num),1) for num in predictions[0]]
 
 def train_and_save_model(data_path, model_path, scaler_path, n_steps, test_size=0.2, random_state=42, epochs=5):
     data_scaled, scaler = load_and_scale_data(data_path)
@@ -67,7 +67,6 @@ def train_and_save_model(data_path, model_path, scaler_path, n_steps, test_size=
 
 if __name__ == "__main__":
     train_needed = False
-    os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
     data_path = 'data/temp_data.csv'
     model_path = 'models/prediction_model.h5'
     scaler_path = 'models/prediction_scaler.pkl'
@@ -77,6 +76,7 @@ if __name__ == "__main__":
         train_and_save_model(data_path, model_path, scaler_path, n_steps)
     else:
         model, scaler = load_model_and_scaler(model_path, scaler_path)
-        new_window_data = pd.read_csv(data_path)[-n_steps:]
+        new_window_data = pd.read_csv(data_path)[-n_steps:].values.tolist()
+        print('new_window_data', new_window_data, type(new_window_data))
         prediction = predict_single_window(model, scaler, new_window_data)
         print('Prediction:', format_predictions(prediction))

@@ -42,3 +42,12 @@ class TestModel(BaseModel):
 
 class UserInDB(User):
     hashed_password: str
+
+
+class PredictWindowData(BaseModel):
+    data: List[List[float]]
+
+
+class AnomalyDetectionData(BaseModel):
+    data: List[List[float]]
+    THRESHOLD: float

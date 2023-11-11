@@ -22,25 +22,15 @@ model_anomaly, scaler_anomaly = anomaly_model.load_model_and_scaler('models/anom
                                                                     'models/anomaly_detection_scaler.pkl')
 
 
-class PredictWindowData(BaseModel):
-    data: List[List[float]]
-
-
-class AnomalyDetectionData(BaseModel):
-    data: List[List[float]]
-    THRESHOLD: float
-
-
-
 # Endpoint for predict_single_window in prediction_model.py
 @app.get("/predict-window")
-def predict_window(data: PredictWindowData):
+def predict_window(data: models.PredictWindowData):
     prediction = prediction_model.predict_single_window(model_prediction, model_anomaly, data.data)
     return {"prediction": prediction}
 
 
 @app.get("/detect-anomaly")
-def detect_anomaly(data: AnomalyDetectionData):
+def detect_anomaly(data: models.AnomalyDetectionData):
     anomaly_detected = anomaly_model.detect_anomaly_in_window(data.data, model_anomaly, scaler_anomaly,
                                                               data.THRESHOLD)
     return {"anomaly_detected": anomaly_detected}

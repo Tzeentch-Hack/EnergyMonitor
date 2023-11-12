@@ -44,21 +44,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.patrykandpatrick.vico.compose.axis.axisLabelComponent
-import com.patrykandpatrick.vico.compose.axis.horizontal.rememberBottomAxis
-import com.patrykandpatrick.vico.compose.axis.vertical.rememberStartAxis
-import com.patrykandpatrick.vico.compose.chart.Chart
-import com.patrykandpatrick.vico.compose.chart.line.lineChart
-import com.patrykandpatrick.vico.compose.chart.line.lineSpec
-import com.patrykandpatrick.vico.core.chart.composed.plus
-import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
-import com.patrykandpatrick.vico.core.entry.FloatEntry
-import com.patrykandpatrick.vico.core.entry.composed.plus
 import com.patrykandpatrick.vico.core.extension.sumByFloat
 import com.tzeentch.energy_saver.R
 import com.tzeentch.energy_saver.helpers.NavigationItem
 import com.tzeentch.energy_saver.local.Constants
 import com.tzeentch.energy_saver.remote.dto.DeviceDto
+import com.tzeentch.energy_saver.ui.compose.components.GraphsCreatorSum
+import com.tzeentch.energy_saver.ui.compose.components.GraphsCreatorWatt
 import com.tzeentch.energy_saver.ui.compose.components.IpDialog
 import com.tzeentch.energy_saver.ui.compose.components.TipOfTheDayDialog
 import com.tzeentch.energy_saver.ui.states.MainStates
@@ -188,6 +180,7 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                         onTipClick = { index ->
                             scope.launch {
                                 selectedDevice = devices[index]
+                                viewModel.getGraphsById(devices[index].deviceId)
                                 bottomSheetScaffoldState.bottomSheetState.expand()
                             }
                         }
@@ -206,7 +199,9 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                                 verticalArrangement = Arrangement.Center
                             ) {
                                 Surface(
-                                    modifier = Modifier.semantics { contentDescription = "dragHandleDescription" },
+                                    modifier = Modifier.semantics {
+                                        contentDescription = "dragHandleDescription"
+                                    },
                                     color = Color.Gray,
                                     shape = MaterialTheme.shapes.extraLarge
                                 ) {
@@ -275,6 +270,9 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                                         .padding(horizontal = 15.dp, vertical = 8.dp),
                                     verticalArrangement = Arrangement.spacedBy(7.dp)
                                 ) {
+
+
+                                    val graphData = viewModel.dataGraphById.collectAsState().value
                                     Text(
                                         text = "Потребление: ${
                                             selectedDevice.wattConsumption.substringBefore(
@@ -282,60 +280,13 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel = koinView
                                             )
                                         }"
                                     )
+                                    GraphsCreatorWatt(graphData = graphData.data)
                                     Text(
                                         text = "Потрачено сум: ${
                                             selectedDevice.sumConsumption?.toFloat()?.roundToInt()
                                         }"
                                     )
-                                    val list = listOf(1, 5, 10, 3, 4, 10, 30, 50, 30, 10, 20, 30)
-                                    val lineChart1 = lineChart(
-                                        lines = listOf(
-                                            lineSpec(
-                                                lineThickness = 3.dp,
-                                                lineColor = Color(0xFF7F00FF),
-                                            ),
-                                        )
-                                    )
-                                    val lineChart2 = lineChart(
-                                        lines = listOf(
-                                            lineSpec(
-                                                lineThickness = 3.dp,
-                                                lineColor = Color(0xFF102C54),
-                                            ),
-                                        )
-                                    )
-                                    val entryCollections1 by remember {
-                                        mutableStateOf(
-                                            list.subList(0, 9).mapIndexed { index, watt ->
-                                                FloatEntry(
-                                                    x = index.toFloat(), y = watt.toFloat()
-                                                )
-                                            }.toList()
-                                        )
-                                    }
-                                    val entryCollections2 by remember {
-                                        mutableStateOf(
-                                            list.subList(8, list.size).mapIndexed { index, watt ->
-                                                FloatEntry(
-                                                    x = index.toFloat() + 8, y = watt.toFloat()
-                                                )
-                                            }.toList()
-                                        )
-                                    }
-                                    val chartEntryModel1 =
-                                        ChartEntryModelProducer(entryCollections1)
-                                    val chartEntryModel2 =
-                                        ChartEntryModelProducer(entryCollections2)
-                                    val composedChartEntryModelProducer =
-                                        chartEntryModel1 + chartEntryModel2
-                                    Chart(
-                                        chart = remember(
-                                            lineChart1, lineChart2
-                                        ) { lineChart1 + lineChart2 },
-                                        chartModelProducer = composedChartEntryModelProducer,
-                                        startAxis = rememberStartAxis(axisLabelComponent(color = Color.White)),
-                                        bottomAxis = rememberBottomAxis(axisLabelComponent(color = Color.White)),
-                                    )
+                                    GraphsCreatorSum(graphData = graphData.data)
 
                                     Text(
                                         text = "За все время истрачено уже: ${

@@ -47,9 +47,9 @@ import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.unit.dp
 import com.patrykandpatrick.vico.core.extension.sumByFloat
 import com.tzeentch.energy_saver.R
+import com.tzeentch.energy_saver.helpers.RoundFloor
 import com.tzeentch.energy_saver.remote.dto.DeviceDto
 import kotlin.math.cos
-import kotlin.math.floor
 import kotlin.math.roundToInt
 import kotlin.math.sin
 
@@ -250,13 +250,13 @@ fun SpiderCluster(
         // Draw the spider's legs
         Canvas(modifier = Modifier
             .size(tipsCanvasSize)
-            .pointerInput(Unit) {
+            .pointerInput(deviceList) {
                 detectTapGestures { offset ->
                     // Check each tip's bounds to see if the tap is within any tip
                     for ((index, tipPosition) in tipPositions.withIndex()) {
                         if (isPointInsideTip(offset, tipPosition, tipCircleRadius)) {
                             Log.e("TAG", "SpiderCluster: TIP CLICKED $index")
-                            onTipClick(index)// Callback when a tip is clicked
+                            onTipClick(index)
                             break
                         }
                     }
@@ -278,8 +278,8 @@ fun SpiderCluster(
                     val tipPosition = drawLeg(
                         angles.map { it.toFloat() },
                         if (!isSum)
-                            deviceList[i].wattConsumption.toFloat().roundToInt().toString()
-                        else (floor(deviceList[i].sumConsumption?.toFloat() ?: (0f * 100.0f)) / 100.0f).toString(),
+                            deviceList[i].wattConsumption.substringBefore(",")
+                        else (RoundFloor.roundOffDecimal(deviceList[i].sumConsumption?.toFloat()?:0f).toString()),
                         legSegmentLength,
                         strokeWidth,
                         animatedProgress,
@@ -317,9 +317,8 @@ fun SpiderCluster(
                     it.wattConsumption.substringBefore(',').toFloat()
                 }.roundToInt()
                     .toString() else deviceList.sumByFloat {
-                    floor(
-                        it.sumConsumption?.toFloat() ?: (0f * 100.0f)
-                    ) / 100.0f
+                    RoundFloor.roundOffDecimal(
+                        it.sumConsumption?.toFloat() ?:0f)
                 }.toString(),
                 size.center.x,
                 size.center.y + bodyRadius / 3.5f, // Adjust this value to center the text vertically

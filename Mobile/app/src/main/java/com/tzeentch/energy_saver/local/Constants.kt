@@ -5,6 +5,8 @@ object Constants {
     const val LOGIN_USER = "/login"
     const val REGISTER_USER = "/registration"
     const val GET_DEVICE_STATISTIC = "/device_statistics"
+    const val GET_GRAPHS_DATA = "/get_all_statistics"
+    const val GET_GRAPHS_BY_ID ="/"
     const val DISABLE_DEVICE = "/disable_device"
     const val TIP_OF_THE_DAY = "Удалите старые электронные письма\n" +
             "78% всех входящих электронных" +

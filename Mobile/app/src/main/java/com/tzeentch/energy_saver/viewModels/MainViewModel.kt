@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tzeentch.energy_saver.local.PreferenceManager
 import com.tzeentch.energy_saver.remote.dto.DeviceDto
+import com.tzeentch.energy_saver.remote.dto.GraphicsResultDto
 import com.tzeentch.energy_saver.remote.isLoading
 import com.tzeentch.energy_saver.remote.onFailure
 import com.tzeentch.energy_saver.remote.onSuccess
@@ -25,8 +26,46 @@ class MainViewModel constructor(
     private val _deviceList = MutableStateFlow<List<DeviceDto>>(emptyList())
     val deviceList = _deviceList.asStateFlow()
 
+    private val _mainDataGraph =
+        MutableStateFlow<GraphicsResultDto>(GraphicsResultDto(data = emptyList()))
+    val mainDataGraph = _mainDataGraph.asStateFlow()
+
+    private val _dataGraphById =
+        MutableStateFlow<GraphicsResultDto>(GraphicsResultDto(data = emptyList()))
+    val dataGraphById = _mainDataGraph.asStateFlow()
+
     init {
         getDeviceInfo()
+        getGraphsInfo()
+    }
+
+
+    private fun getGraphsInfo() {
+        viewModelScope.launch {
+            repository.getGraphicsData(prefs.getToken(), prefs.getIp()).collect { result ->
+                result.isLoading {
+
+                }.onSuccess {
+                    _mainDataGraph.value = it
+                }.onFailure {
+
+                }
+            }
+        }
+    }
+
+    fun getGraphsById(id:String){
+        viewModelScope.launch {
+            repository.getGraphicsDataById(prefs.getToken(), prefs.getIp(),id).collect { result ->
+                result.isLoading {
+
+                }.onSuccess {
+                    _dataGraphById.value = it
+                }.onFailure {
+
+                }
+            }
+        }
     }
 
 

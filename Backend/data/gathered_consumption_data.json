@@ -1,0 +1,2686 @@
+[
+  {
+    "2023-10-01": [
+      {
+        "id": "device_1",
+        "consumption": 1397.3523134681955
+      },
+      {
+        "id": "device_2",
+        "consumption": 340.6484333430233
+      },
+      {
+        "id": "device_3",
+        "consumption": 726.2024360459902
+      },
+      {
+        "id": "device_4",
+        "consumption": 3978.6254168393816
+      },
+      {
+        "id": "device_5",
+        "consumption": 307.9464588486556
+      },
+      {
+        "id": "device_6",
+        "consumption": 51.44108867615047
+      },
+      {
+        "id": "device_7",
+        "consumption": 966.1117282921564
+      },
+      {
+        "id": "device_8",
+        "consumption": 1493.253640343361
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 309.2471735656709
+      }
+    ]
+  },
+  {
+    "2023-10-02": [
+      {
+        "id": "device_1",
+        "consumption": 1231.7470460146003
+      },
+      {
+        "id": "device_2",
+        "consumption": 342.22389124176374
+      },
+      {
+        "id": "device_3",
+        "consumption": 741.3734451374
+      },
+      {
+        "id": "device_4",
+        "consumption": 2995.2404328253497
+      },
+      {
+        "id": "device_5",
+        "consumption": 429.8038608310815
+      },
+      {
+        "id": "device_6",
+        "consumption": 3.703395017661535
+      },
+      {
+        "id": "device_7",
+        "consumption": 979.9854177537293
+      },
+      {
+        "id": "device_8",
+        "consumption": 899.7958371733422
+      },
+      {
+        "id": "device_9",
+        "consumption": 118.95954208847428
+      },
+      {
+        "id": "device_10",
+        "consumption": 320.69843652806605
+      }
+    ]
+  },
+  {
+    "2023-10-03": [
+      {
+        "id": "device_1",
+        "consumption": 1371.7681973836707
+      },
+      {
+        "id": "device_2",
+        "consumption": 296.346012352582
+      },
+      {
+        "id": "device_3",
+        "consumption": 711.1185352879047
+      },
+      {
+        "id": "device_4",
+        "consumption": 4089.224952414822
+      },
+      {
+        "id": "device_5",
+        "consumption": 347.5685252443741
+      },
+      {
+        "id": "device_6",
+        "consumption": 36.21899076533971
+      },
+      {
+        "id": "device_7",
+        "consumption": 999.1748576557876
+      },
+      {
+        "id": "device_8",
+        "consumption": 1052.3814172245684
+      },
+      {
+        "id": "device_9",
+        "consumption": 99.81660435045467
+      },
+      {
+        "id": "device_10",
+        "consumption": 329.516164856396
+      }
+    ]
+  },
+  {
+    "2023-10-04": [
+      {
+        "id": "device_1",
+        "consumption": 1395.3048253158329
+      },
+      {
+        "id": "device_2",
+        "consumption": 370.3280978839125
+      },
+      {
+        "id": "device_3",
+        "consumption": 693.6969850835886
+      },
+      {
+        "id": "device_4",
+        "consumption": 3980.1243011946094
+      },
+      {
+        "id": "device_5",
+        "consumption": 339.84691332953236
+      },
+      {
+        "id": "device_6",
+        "consumption": 11.74747585424803
+      },
+      {
+        "id": "device_7",
+        "consumption": 1010.2054162500348
+      },
+      {
+        "id": "device_8",
+        "consumption": 1377.6559750171973
+      },
+      {
+        "id": "device_9",
+        "consumption": 30.162338110263455
+      },
+      {
+        "id": "device_10",
+        "consumption": 337.48247436795157
+      }
+    ]
+  },
+  {
+    "2023-10-05": [
+      {
+        "id": "device_1",
+        "consumption": 1402.1222866812602
+      },
+      {
+        "id": "device_2",
+        "consumption": 419.66416249108426
+      },
+      {
+        "id": "device_3",
+        "consumption": 708.9488348800986
+      },
+      {
+        "id": "device_4",
+        "consumption": 4564.8877291164545
+      },
+      {
+        "id": "device_5",
+        "consumption": 296.20530309168373
+      },
+      {
+        "id": "device_6",
+        "consumption": 34.690281868644625
+      },
+      {
+        "id": "device_7",
+        "consumption": 1006.8400871270217
+      },
+      {
+        "id": "device_8",
+        "consumption": 586.955191025759
+      },
+      {
+        "id": "device_9",
+        "consumption": 36.93649361227014
+      },
+      {
+        "id": "device_10",
+        "consumption": 332.85370247505796
+      }
+    ]
+  },
+  {
+    "2023-10-06": [
+      {
+        "id": "device_1",
+        "consumption": 1379.8268509045386
+      },
+      {
+        "id": "device_2",
+        "consumption": 295.81688674778616
+      },
+      {
+        "id": "device_3",
+        "consumption": 702.239587461939
+      },
+      {
+        "id": "device_4",
+        "consumption": 3856.4115745383283
+      },
+      {
+        "id": "device_5",
+        "consumption": 344.31154424971385
+      },
+      {
+        "id": "device_6",
+        "consumption": 49.69857161840384
+      },
+      {
+        "id": "device_7",
+        "consumption": 987.2905393990388
+      },
+      {
+        "id": "device_8",
+        "consumption": 1318.5869717808955
+      },
+      {
+        "id": "device_9",
+        "consumption": 117.3492547093602
+      },
+      {
+        "id": "device_10",
+        "consumption": 307.92248981646605
+      }
+    ]
+  },
+  {
+    "2023-10-07": [
+      {
+        "id": "device_1",
+        "consumption": 1721.4463897240412
+      },
+      {
+        "id": "device_2",
+        "consumption": 461.9857352548802
+      },
+      {
+        "id": "device_3",
+        "consumption": 952.2282638127001
+      },
+      {
+        "id": "device_4",
+        "consumption": 4215.879645027336
+      },
+      {
+        "id": "device_5",
+        "consumption": 454.47967660158207
+      },
+      {
+        "id": "device_6",
+        "consumption": 89.09165530467361
+      },
+      {
+        "id": "device_7",
+        "consumption": 1234.2600075544785
+      },
+      {
+        "id": "device_8",
+        "consumption": 1559.367668480283
+      },
+      {
+        "id": "device_9",
+        "consumption": 173.14030559868004
+      },
+      {
+        "id": "device_10",
+        "consumption": 362.0755918117539
+      }
+    ]
+  },
+  {
+    "2023-10-08": [
+      {
+        "id": "device_1",
+        "consumption": 1594.1691155007088
+      },
+      {
+        "id": "device_2",
+        "consumption": 490.0704005544953
+      },
+      {
+        "id": "device_3",
+        "consumption": 860.7603106542593
+      },
+      {
+        "id": "device_4",
+        "consumption": 4606.130852334228
+      },
+      {
+        "id": "device_5",
+        "consumption": 477.7604253531054
+      },
+      {
+        "id": "device_6",
+        "consumption": 103.90194840003946
+      },
+      {
+        "id": "device_7",
+        "consumption": 1204.7072800015906
+      },
+      {
+        "id": "device_8",
+        "consumption": 1967.2148435214708
+      },
+      {
+        "id": "device_9",
+        "consumption": 101.80045635077694
+      },
+      {
+        "id": "device_10",
+        "consumption": 369.9856427800872
+      }
+    ]
+  },
+  {
+    "2023-10-09": [
+      {
+        "id": "device_1",
+        "consumption": 1402.3484183119383
+      },
+      {
+        "id": "device_2",
+        "consumption": 222.14139865850547
+      },
+      {
+        "id": "device_3",
+        "consumption": 712.9215327119266
+      },
+      {
+        "id": "device_4",
+        "consumption": 3733.7440366516093
+      },
+      {
+        "id": "device_5",
+        "consumption": 344.71300925662797
+      },
+      {
+        "id": "device_6",
+        "consumption": 13.549579257030558
+      },
+      {
+        "id": "device_7",
+        "consumption": 1091.738023461101
+      },
+      {
+        "id": "device_8",
+        "consumption": 848.0966279971863
+      },
+      {
+        "id": "device_9",
+        "consumption": 172.38525608039026
+      },
+      {
+        "id": "device_10",
+        "consumption": 325.1504567508802
+      }
+    ]
+  },
+  {
+    "2023-10-10": [
+      {
+        "id": "device_1",
+        "consumption": 1363.8175567068529
+      },
+      {
+        "id": "device_2",
+        "consumption": 407.75937120105715
+      },
+      {
+        "id": "device_3",
+        "consumption": 728.9477152799753
+      },
+      {
+        "id": "device_4",
+        "consumption": 4469.067604914605
+      },
+      {
+        "id": "device_5",
+        "consumption": 429.9533412696181
+      },
+      {
+        "id": "device_6",
+        "consumption": 46.40889538670447
+      },
+      {
+        "id": "device_7",
+        "consumption": 1012.9425482414838
+      },
+      {
+        "id": "device_8",
+        "consumption": 867.9885562107547
+      },
+      {
+        "id": "device_9",
+        "consumption": 17.595727657677003
+      },
+      {
+        "id": "device_10",
+        "consumption": 292.4700126570814
+      }
+    ]
+  },
+  {
+    "2023-10-11": [
+      {
+        "id": "device_1",
+        "consumption": 1428.798068918557
+      },
+      {
+        "id": "device_2",
+        "consumption": 232.56823813945755
+      },
+      {
+        "id": "device_3",
+        "consumption": 721.9682922970328
+      },
+      {
+        "id": "device_4",
+        "consumption": 4285.6456467197595
+      },
+      {
+        "id": "device_5",
+        "consumption": 529.8437697220625
+      },
+      {
+        "id": "device_6",
+        "consumption": 68.8870333956466
+      },
+      {
+        "id": "device_7",
+        "consumption": 961.3888672029541
+      },
+      {
+        "id": "device_8",
+        "consumption": 1525.8263808460995
+      },
+      {
+        "id": "device_9",
+        "consumption": 10.967992134678411
+      },
+      {
+        "id": "device_10",
+        "consumption": 309.75972886273917
+      }
+    ]
+  },
+  {
+    "2023-10-12": [
+      {
+        "id": "device_1",
+        "consumption": 1443.3668220402083
+      },
+      {
+        "id": "device_2",
+        "consumption": 181.96796900765546
+      },
+      {
+        "id": "device_3",
+        "consumption": 668.3318791482446
+      },
+      {
+        "id": "device_4",
+        "consumption": 3888.6856550357334
+      },
+      {
+        "id": "device_5",
+        "consumption": 441.48530615806555
+      },
+      {
+        "id": "device_6",
+        "consumption": 65.50570732050575
+      },
+      {
+        "id": "device_7",
+        "consumption": 986.6087646058892
+      },
+      {
+        "id": "device_8",
+        "consumption": 1112.7563657486835
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 316.0675007021253
+      }
+    ]
+  },
+  {
+    "2023-10-13": [
+      {
+        "id": "device_1",
+        "consumption": 1324.9926862229522
+      },
+      {
+        "id": "device_2",
+        "consumption": 315.9150213698986
+      },
+      {
+        "id": "device_3",
+        "consumption": 714.0526437960584
+      },
+      {
+        "id": "device_4",
+        "consumption": 4115.803799173167
+      },
+      {
+        "id": "device_5",
+        "consumption": 484.54494990694195
+      },
+      {
+        "id": "device_6",
+        "consumption": 60.18737575355167
+      },
+      {
+        "id": "device_7",
+        "consumption": 916.0557802348262
+      },
+      {
+        "id": "device_8",
+        "consumption": 1008.2146915204582
+      },
+      {
+        "id": "device_9",
+        "consumption": 30.11415936292549
+      },
+      {
+        "id": "device_10",
+        "consumption": 307.7901806631736
+      }
+    ]
+  },
+  {
+    "2023-10-14": [
+      {
+        "id": "device_1",
+        "consumption": 1813.9809986951875
+      },
+      {
+        "id": "device_2",
+        "consumption": 475.44635360632935
+      },
+      {
+        "id": "device_3",
+        "consumption": 793.3433026061207
+      },
+      {
+        "id": "device_4",
+        "consumption": 4704.046066622418
+      },
+      {
+        "id": "device_5",
+        "consumption": 637.9650785206217
+      },
+      {
+        "id": "device_6",
+        "consumption": 0
+      },
+      {
+        "id": "device_7",
+        "consumption": 1237.7501625190184
+      },
+      {
+        "id": "device_8",
+        "consumption": 1616.9347263104412
+      },
+      {
+        "id": "device_9",
+        "consumption": 185.95095282034632
+      },
+      {
+        "id": "device_10",
+        "consumption": 372.9272587382087
+      }
+    ]
+  },
+  {
+    "2023-10-15": [
+      {
+        "id": "device_1",
+        "consumption": 1561.4274176606266
+      },
+      {
+        "id": "device_2",
+        "consumption": 318.7989380844056
+      },
+      {
+        "id": "device_3",
+        "consumption": 883.7719044661171
+      },
+      {
+        "id": "device_4",
+        "consumption": 3581.037135063615
+      },
+      {
+        "id": "device_5",
+        "consumption": 488.5664384399519
+      },
+      {
+        "id": "device_6",
+        "consumption": 23.129625185014472
+      },
+      {
+        "id": "device_7",
+        "consumption": 1220.5957298603073
+      },
+      {
+        "id": "device_8",
+        "consumption": 1269.4652739052785
+      },
+      {
+        "id": "device_9",
+        "consumption": 58.1152315558406
+      },
+      {
+        "id": "device_10",
+        "consumption": 411.9348622019126
+      }
+    ]
+  },
+  {
+    "2023-10-16": [
+      {
+        "id": "device_1",
+        "consumption": 1476.754595720089
+      },
+      {
+        "id": "device_2",
+        "consumption": 403.9379270600285
+      },
+      {
+        "id": "device_3",
+        "consumption": 739.9840803273589
+      },
+      {
+        "id": "device_4",
+        "consumption": 3889.008771869832
+      },
+      {
+        "id": "device_5",
+        "consumption": 365.56837142193535
+      },
+      {
+        "id": "device_6",
+        "consumption": 92.3908150908409
+      },
+      {
+        "id": "device_7",
+        "consumption": 1004.7930441611658
+      },
+      {
+        "id": "device_8",
+        "consumption": 1685.1958437669366
+      },
+      {
+        "id": "device_9",
+        "consumption": 202.5671279240551
+      },
+      {
+        "id": "device_10",
+        "consumption": 310.2754283048074
+      }
+    ]
+  },
+  {
+    "2023-10-17": [
+      {
+        "id": "device_1",
+        "consumption": 1357.7733489919365
+      },
+      {
+        "id": "device_2",
+        "consumption": 576.0988471875758
+      },
+      {
+        "id": "device_3",
+        "consumption": 634.6003747344878
+      },
+      {
+        "id": "device_4",
+        "consumption": 4452.187136993501
+      },
+      {
+        "id": "device_5",
+        "consumption": 495.01071001939215
+      },
+      {
+        "id": "device_6",
+        "consumption": 98.53773260861183
+      },
+      {
+        "id": "device_7",
+        "consumption": 1045.324413659079
+      },
+      {
+        "id": "device_8",
+        "consumption": 1202.3710925649023
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 326.8672012399793
+      }
+    ]
+  },
+  {
+    "2023-10-18": [
+      {
+        "id": "device_1",
+        "consumption": 1450.0351762256976
+      },
+      {
+        "id": "device_2",
+        "consumption": 433.85252428003673
+      },
+      {
+        "id": "device_3",
+        "consumption": 708.9863155508842
+      },
+      {
+        "id": "device_4",
+        "consumption": 4308.487499696426
+      },
+      {
+        "id": "device_5",
+        "consumption": 483.8684051466102
+      },
+      {
+        "id": "device_6",
+        "consumption": 45.22000358181653
+      },
+      {
+        "id": "device_7",
+        "consumption": 828.5263083266133
+      },
+      {
+        "id": "device_8",
+        "consumption": 1259.7955193329494
+      },
+      {
+        "id": "device_9",
+        "consumption": 188.50798657941647
+      },
+      {
+        "id": "device_10",
+        "consumption": 350.24214802489297
+      }
+    ]
+  },
+  {
+    "2023-10-19": [
+      {
+        "id": "device_1",
+        "consumption": 1465.125670601264
+      },
+      {
+        "id": "device_2",
+        "consumption": 316.37753570943016
+      },
+      {
+        "id": "device_3",
+        "consumption": 649.323959692723
+      },
+      {
+        "id": "device_4",
+        "consumption": 3654.3458990507233
+      },
+      {
+        "id": "device_5",
+        "consumption": 488.2309919802709
+      },
+      {
+        "id": "device_6",
+        "consumption": 94.95393199052796
+      },
+      {
+        "id": "device_7",
+        "consumption": 993.4555013564147
+      },
+      {
+        "id": "device_8",
+        "consumption": 1932.8035019384768
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 333.1032558132105
+      }
+    ]
+  },
+  {
+    "2023-10-20": [
+      {
+        "id": "device_1",
+        "consumption": 1311.1725689138952
+      },
+      {
+        "id": "device_2",
+        "consumption": 343.8834817781244
+      },
+      {
+        "id": "device_3",
+        "consumption": 711.8577092473264
+      },
+      {
+        "id": "device_4",
+        "consumption": 4579.819962823042
+      },
+      {
+        "id": "device_5",
+        "consumption": 340.8450301733266
+      },
+      {
+        "id": "device_6",
+        "consumption": 0
+      },
+      {
+        "id": "device_7",
+        "consumption": 984.9667460552251
+      },
+      {
+        "id": "device_8",
+        "consumption": 1432.6432231638034
+      },
+      {
+        "id": "device_9",
+        "consumption": 72.95746639670818
+      },
+      {
+        "id": "device_10",
+        "consumption": 310.4128520837419
+      }
+    ]
+  },
+  {
+    "2023-10-21": [
+      {
+        "id": "device_1",
+        "consumption": 1753.9215217379244
+      },
+      {
+        "id": "device_2",
+        "consumption": 369.2198608881718
+      },
+      {
+        "id": "device_3",
+        "consumption": 791.6470902340795
+      },
+      {
+        "id": "device_4",
+        "consumption": 5325.284511509092
+      },
+      {
+        "id": "device_5",
+        "consumption": 490.3452820125202
+      },
+      {
+        "id": "device_6",
+        "consumption": 82.9240496658232
+      },
+      {
+        "id": "device_7",
+        "consumption": 1161.5141420207965
+      },
+      {
+        "id": "device_8",
+        "consumption": 2384.5280332032908
+      },
+      {
+        "id": "device_9",
+        "consumption": 219.0918102493201
+      },
+      {
+        "id": "device_10",
+        "consumption": 390.2951933718295
+      }
+    ]
+  },
+  {
+    "2023-10-22": [
+      {
+        "id": "device_1",
+        "consumption": 1898.9995282119366
+      },
+      {
+        "id": "device_2",
+        "consumption": 383.0181403345045
+      },
+      {
+        "id": "device_3",
+        "consumption": 959.2429867065492
+      },
+      {
+        "id": "device_4",
+        "consumption": 5175.345958167957
+      },
+      {
+        "id": "device_5",
+        "consumption": 489.41634203408967
+      },
+      {
+        "id": "device_6",
+        "consumption": 56.79079700058337
+      },
+      {
+        "id": "device_7",
+        "consumption": 1240.874830386793
+      },
+      {
+        "id": "device_8",
+        "consumption": 1230.1140672071663
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 380.1597677285388
+      }
+    ]
+  },
+  {
+    "2023-10-23": [
+      {
+        "id": "device_1",
+        "consumption": 1589.9830055862415
+      },
+      {
+        "id": "device_2",
+        "consumption": 325.40913080762067
+      },
+      {
+        "id": "device_3",
+        "consumption": 639.2376935838803
+      },
+      {
+        "id": "device_4",
+        "consumption": 3855.0436846332577
+      },
+      {
+        "id": "device_5",
+        "consumption": 237.34883384370193
+      },
+      {
+        "id": "device_6",
+        "consumption": 58.90071747025553
+      },
+      {
+        "id": "device_7",
+        "consumption": 954.0678916720542
+      },
+      {
+        "id": "device_8",
+        "consumption": 1808.1631917160198
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 324.94514655722685
+      }
+    ]
+  },
+  {
+    "2023-10-24": [
+      {
+        "id": "device_1",
+        "consumption": 1278.4415062313224
+      },
+      {
+        "id": "device_2",
+        "consumption": 505.4195721695363
+      },
+      {
+        "id": "device_3",
+        "consumption": 715.9417208765766
+      },
+      {
+        "id": "device_4",
+        "consumption": 4524.552583011093
+      },
+      {
+        "id": "device_5",
+        "consumption": 370.09086363690903
+      },
+      {
+        "id": "device_6",
+        "consumption": 39.53602780755678
+      },
+      {
+        "id": "device_7",
+        "consumption": 1028.3837144109823
+      },
+      {
+        "id": "device_8",
+        "consumption": 1116.7284086474426
+      },
+      {
+        "id": "device_9",
+        "consumption": 71.70789518648374
+      },
+      {
+        "id": "device_10",
+        "consumption": 308.1469157960579
+      }
+    ]
+  },
+  {
+    "2023-10-25": [
+      {
+        "id": "device_1",
+        "consumption": 1404.2871049187345
+      },
+      {
+        "id": "device_2",
+        "consumption": 442.0107484164107
+      },
+      {
+        "id": "device_3",
+        "consumption": 705.3371537837539
+      },
+      {
+        "id": "device_4",
+        "consumption": 4537.615161766944
+      },
+      {
+        "id": "device_5",
+        "consumption": 435.6002667688587
+      },
+      {
+        "id": "device_6",
+        "consumption": 0
+      },
+      {
+        "id": "device_7",
+        "consumption": 1078.7145698441293
+      },
+      {
+        "id": "device_8",
+        "consumption": 565.4263674963095
+      },
+      {
+        "id": "device_9",
+        "consumption": 195.8700265383534
+      },
+      {
+        "id": "device_10",
+        "consumption": 337.8688987140096
+      }
+    ]
+  },
+  {
+    "2023-10-26": [
+      {
+        "id": "device_1",
+        "consumption": 1588.6450322156516
+      },
+      {
+        "id": "device_2",
+        "consumption": 459.1070323550745
+      },
+      {
+        "id": "device_3",
+        "consumption": 704.770618344577
+      },
+      {
+        "id": "device_4",
+        "consumption": 2879.5037317857714
+      },
+      {
+        "id": "device_5",
+        "consumption": 401.7175594004764
+      },
+      {
+        "id": "device_6",
+        "consumption": 37.98612535863516
+      },
+      {
+        "id": "device_7",
+        "consumption": 1023.2124793626024
+      },
+      {
+        "id": "device_8",
+        "consumption": 1424.052776798127
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 303.0530315252436
+      }
+    ]
+  },
+  {
+    "2023-10-27": [
+      {
+        "id": "device_1",
+        "consumption": 1528.9976416769655
+      },
+      {
+        "id": "device_2",
+        "consumption": 304.67262393138753
+      },
+      {
+        "id": "device_3",
+        "consumption": 699.7469553011823
+      },
+      {
+        "id": "device_4",
+        "consumption": 4111.932275841549
+      },
+      {
+        "id": "device_5",
+        "consumption": 317.3442735989191
+      },
+      {
+        "id": "device_6",
+        "consumption": 75.7913791058203
+      },
+      {
+        "id": "device_7",
+        "consumption": 1055.6652159337812
+      },
+      {
+        "id": "device_8",
+        "consumption": 1268.3803211289342
+      },
+      {
+        "id": "device_9",
+        "consumption": 309.3313663372658
+      },
+      {
+        "id": "device_10",
+        "consumption": 298.73332327208
+      }
+    ]
+  },
+  {
+    "2023-10-28": [
+      {
+        "id": "device_1",
+        "consumption": 1849.3758320199738
+      },
+      {
+        "id": "device_2",
+        "consumption": 257.0972774228387
+      },
+      {
+        "id": "device_3",
+        "consumption": 891.5763275541174
+      },
+      {
+        "id": "device_4",
+        "consumption": 4863.315322619425
+      },
+      {
+        "id": "device_5",
+        "consumption": 465.96253928918145
+      },
+      {
+        "id": "device_6",
+        "consumption": 0
+      },
+      {
+        "id": "device_7",
+        "consumption": 1483.69523953052
+      },
+      {
+        "id": "device_8",
+        "consumption": 1051.3204137441112
+      },
+      {
+        "id": "device_9",
+        "consumption": 179.37078090538623
+      },
+      {
+        "id": "device_10",
+        "consumption": 397.9789183659298
+      }
+    ]
+  },
+  {
+    "2023-10-29": [
+      {
+        "id": "device_1",
+        "consumption": 1782.3973611033634
+      },
+      {
+        "id": "device_2",
+        "consumption": 378.57219144627754
+      },
+      {
+        "id": "device_3",
+        "consumption": 899.1622517531365
+      },
+      {
+        "id": "device_4",
+        "consumption": 4438.817228798411
+      },
+      {
+        "id": "device_5",
+        "consumption": 212.76901573631176
+      },
+      {
+        "id": "device_6",
+        "consumption": 102.9231592093325
+      },
+      {
+        "id": "device_7",
+        "consumption": 969.2081060333599
+      },
+      {
+        "id": "device_8",
+        "consumption": 2156.7469454294646
+      },
+      {
+        "id": "device_9",
+        "consumption": 73.88585689085991
+      },
+      {
+        "id": "device_10",
+        "consumption": 361.823588627369
+      }
+    ]
+  },
+  {
+    "2023-10-30": [
+      {
+        "id": "device_1",
+        "consumption": 1388.7491202991273
+      },
+      {
+        "id": "device_2",
+        "consumption": 423.92216965900735
+      },
+      {
+        "id": "device_3",
+        "consumption": 710.1637819543323
+      },
+      {
+        "id": "device_4",
+        "consumption": 3781.186675741147
+      },
+      {
+        "id": "device_5",
+        "consumption": 256.0017057879065
+      },
+      {
+        "id": "device_6",
+        "consumption": 61.00389130110909
+      },
+      {
+        "id": "device_7",
+        "consumption": 948.5689854077741
+      },
+      {
+        "id": "device_8",
+        "consumption": 750.3538334566416
+      },
+      {
+        "id": "device_9",
+        "consumption": 61.785990915197644
+      },
+      {
+        "id": "device_10",
+        "consumption": 319.8525299630271
+      }
+    ]
+  },
+  {
+    "2023-10-31": [
+      {
+        "id": "device_1",
+        "consumption": 1384.5595145400318
+      },
+      {
+        "id": "device_2",
+        "consumption": 384.10436105012246
+      },
+      {
+        "id": "device_3",
+        "consumption": 736.9437579853407
+      },
+      {
+        "id": "device_4",
+        "consumption": 4445.86051099812
+      },
+      {
+        "id": "device_5",
+        "consumption": 544.5203217670655
+      },
+      {
+        "id": "device_6",
+        "consumption": 10.800350462559308
+      },
+      {
+        "id": "device_7",
+        "consumption": 933.2492412016001
+      },
+      {
+        "id": "device_8",
+        "consumption": 887.1987059721641
+      },
+      {
+        "id": "device_9",
+        "consumption": 113.39336828791565
+      },
+      {
+        "id": "device_10",
+        "consumption": 320.8402302637782
+      }
+    ]
+  },
+  {
+    "2023-11-01": [
+      {
+        "id": "device_1",
+        "consumption": 1227.2958724802768
+      },
+      {
+        "id": "device_2",
+        "consumption": 344.3853234834665
+      },
+      {
+        "id": "device_3",
+        "consumption": 726.1721583506675
+      },
+      {
+        "id": "device_4",
+        "consumption": 3762.5363169588995
+      },
+      {
+        "id": "device_5",
+        "consumption": 336.5005034859109
+      },
+      {
+        "id": "device_6",
+        "consumption": 101.56143332631106
+      },
+      {
+        "id": "device_7",
+        "consumption": 995.9221728663955
+      },
+      {
+        "id": "device_8",
+        "consumption": 1759.609959744888
+      },
+      {
+        "id": "device_9",
+        "consumption": 90.54289675255555
+      },
+      {
+        "id": "device_10",
+        "consumption": 329.9636490934836
+      }
+    ]
+  },
+  {
+    "2023-11-02": [
+      {
+        "id": "device_1",
+        "consumption": 1540.3560854646041
+      },
+      {
+        "id": "device_2",
+        "consumption": 400.3381136557059
+      },
+      {
+        "id": "device_3",
+        "consumption": 714.100223302856
+      },
+      {
+        "id": "device_4",
+        "consumption": 3236.3922794443392
+      },
+      {
+        "id": "device_5",
+        "consumption": 604.6367894821885
+      },
+      {
+        "id": "device_6",
+        "consumption": 31.076333665281616
+      },
+      {
+        "id": "device_7",
+        "consumption": 1064.9764561404368
+      },
+      {
+        "id": "device_8",
+        "consumption": 1043.7024363345756
+      },
+      {
+        "id": "device_9",
+        "consumption": 26.546738741404496
+      },
+      {
+        "id": "device_10",
+        "consumption": 311.8034879219264
+      }
+    ]
+  },
+  {
+    "2023-11-03": [
+      {
+        "id": "device_1",
+        "consumption": 1301.2524411910908
+      },
+      {
+        "id": "device_2",
+        "consumption": 432.100650594294
+      },
+      {
+        "id": "device_3",
+        "consumption": 670.0045126925988
+      },
+      {
+        "id": "device_4",
+        "consumption": 3741.183024983119
+      },
+      {
+        "id": "device_5",
+        "consumption": 589.0869274239649
+      },
+      {
+        "id": "device_6",
+        "consumption": 32.025936711416534
+      },
+      {
+        "id": "device_7",
+        "consumption": 1012.6620671844468
+      },
+      {
+        "id": "device_8",
+        "consumption": 1225.8842449763074
+      },
+      {
+        "id": "device_9",
+        "consumption": 0.07357468222802765
+      },
+      {
+        "id": "device_10",
+        "consumption": 305.9678256474009
+      }
+    ]
+  },
+  {
+    "2023-11-04": [
+      {
+        "id": "device_1",
+        "consumption": 1447.2164574880555
+      },
+      {
+        "id": "device_2",
+        "consumption": 198.93974353187548
+      },
+      {
+        "id": "device_3",
+        "consumption": 654.2499046732185
+      },
+      {
+        "id": "device_4",
+        "consumption": 3938.185215050207
+      },
+      {
+        "id": "device_5",
+        "consumption": 377.2521980865425
+      },
+      {
+        "id": "device_6",
+        "consumption": 7.128698019283121
+      },
+      {
+        "id": "device_7",
+        "consumption": 1075.6607199045795
+      },
+      {
+        "id": "device_8",
+        "consumption": 1064.7482893579115
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 344.13113872689854
+      }
+    ]
+  },
+  {
+    "2023-11-05": [
+      {
+        "id": "device_1",
+        "consumption": 1411.6633726405435
+      },
+      {
+        "id": "device_2",
+        "consumption": 228.93080714377388
+      },
+      {
+        "id": "device_3",
+        "consumption": 716.5439868724754
+      },
+      {
+        "id": "device_4",
+        "consumption": 2879.824299088752
+      },
+      {
+        "id": "device_5",
+        "consumption": 591.3991944791178
+      },
+      {
+        "id": "device_6",
+        "consumption": 74.29338130812992
+      },
+      {
+        "id": "device_7",
+        "consumption": 1049.107193396119
+      },
+      {
+        "id": "device_8",
+        "consumption": 1325.2350403397609
+      },
+      {
+        "id": "device_9",
+        "consumption": 4.603432876029785
+      },
+      {
+        "id": "device_10",
+        "consumption": 299.2315578818834
+      }
+    ]
+  },
+  {
+    "2023-11-06": [
+      {
+        "id": "device_1",
+        "consumption": 1357.8720622964204
+      },
+      {
+        "id": "device_2",
+        "consumption": 230.67072148841856
+      },
+      {
+        "id": "device_3",
+        "consumption": 764.9361179469709
+      },
+      {
+        "id": "device_4",
+        "consumption": 4148.512238829435
+      },
+      {
+        "id": "device_5",
+        "consumption": 411.2747161628904
+      },
+      {
+        "id": "device_6",
+        "consumption": 0
+      },
+      {
+        "id": "device_7",
+        "consumption": 926.0759429966247
+      },
+      {
+        "id": "device_8",
+        "consumption": 1453.15547496872
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 297.2806260026885
+      }
+    ]
+  },
+  {
+    "2023-11-07": [
+      {
+        "id": "device_1",
+        "consumption": 1338.4281822067155
+      },
+      {
+        "id": "device_2",
+        "consumption": 232.44972791317562
+      },
+      {
+        "id": "device_3",
+        "consumption": 787.7573144292146
+      },
+      {
+        "id": "device_4",
+        "consumption": 4442.600566836298
+      },
+      {
+        "id": "device_5",
+        "consumption": 477.8736201945909
+      },
+      {
+        "id": "device_6",
+        "consumption": 80.02342006367593
+      },
+      {
+        "id": "device_7",
+        "consumption": 879.1605920426945
+      },
+      {
+        "id": "device_8",
+        "consumption": 1235.427495229956
+      },
+      {
+        "id": "device_9",
+        "consumption": 138.0255452680485
+      },
+      {
+        "id": "device_10",
+        "consumption": 319.0283966013477
+      }
+    ]
+  },
+  {
+    "2023-11-08": [
+      {
+        "id": "device_1",
+        "consumption": 1324.3486605788473
+      },
+      {
+        "id": "device_2",
+        "consumption": 401.33419143132943
+      },
+      {
+        "id": "device_3",
+        "consumption": 638.3100993921911
+      },
+      {
+        "id": "device_4",
+        "consumption": 3815.457341041431
+      },
+      {
+        "id": "device_5",
+        "consumption": 320.62355920032087
+      },
+      {
+        "id": "device_6",
+        "consumption": 64.47337317284574
+      },
+      {
+        "id": "device_7",
+        "consumption": 934.1260097355216
+      },
+      {
+        "id": "device_8",
+        "consumption": 1334.9434201922893
+      },
+      {
+        "id": "device_9",
+        "consumption": 65.52139342783013
+      },
+      {
+        "id": "device_10",
+        "consumption": 300.8956181540579
+      }
+    ]
+  },
+  {
+    "2023-11-09": [
+      {
+        "id": "device_1",
+        "consumption": 1585.8245229571692
+      },
+      {
+        "id": "device_2",
+        "consumption": 564.1962873758331
+      },
+      {
+        "id": "device_3",
+        "consumption": 727.9322238339491
+      },
+      {
+        "id": "device_4",
+        "consumption": 4442.9725028450375
+      },
+      {
+        "id": "device_5",
+        "consumption": 406.5203677464727
+      },
+      {
+        "id": "device_6",
+        "consumption": 30.988727549026652
+      },
+      {
+        "id": "device_7",
+        "consumption": 1035.4286311636836
+      },
+      {
+        "id": "device_8",
+        "consumption": 1036.331665320672
+      },
+      {
+        "id": "device_9",
+        "consumption": 183.54702017266618
+      },
+      {
+        "id": "device_10",
+        "consumption": 334.80745657807176
+      }
+    ]
+  },
+  {
+    "2023-11-10": [
+      {
+        "id": "device_1",
+        "consumption": 1368.890733760814
+      },
+      {
+        "id": "device_2",
+        "consumption": 290.6346652392048
+      },
+      {
+        "id": "device_3",
+        "consumption": 704.4935617129834
+      },
+      {
+        "id": "device_4",
+        "consumption": 4958.546109475122
+      },
+      {
+        "id": "device_5",
+        "consumption": 335.16309913348204
+      },
+      {
+        "id": "device_6",
+        "consumption": 40.69777055413127
+      },
+      {
+        "id": "device_7",
+        "consumption": 1023.9749625708499
+      },
+      {
+        "id": "device_8",
+        "consumption": 997.9703710785261
+      },
+      {
+        "id": "device_9",
+        "consumption": 127.31496681723641
+      },
+      {
+        "id": "device_10",
+        "consumption": 315.1056613919369
+      }
+    ]
+  },
+  {
+    "2023-11-11": [
+      {
+        "id": "device_1",
+        "consumption": 1411.6237425532845
+      },
+      {
+        "id": "device_2",
+        "consumption": 368.280216952975
+      },
+      {
+        "id": "device_3",
+        "consumption": 665.4146368574001
+      },
+      {
+        "id": "device_4",
+        "consumption": 4142.988159725893
+      },
+      {
+        "id": "device_5",
+        "consumption": 420.164022668803
+      },
+      {
+        "id": "device_6",
+        "consumption": 17.647578267896158
+      },
+      {
+        "id": "device_7",
+        "consumption": 891.1609909635101
+      },
+      {
+        "id": "device_8",
+        "consumption": 1080.5287962756936
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 329.27058079315714
+      }
+    ]
+  },
+  {
+    "2023-11-12": [
+      {
+        "id": "device_1",
+        "consumption": 1590.801653032481
+      },
+      {
+        "id": "device_2",
+        "consumption": 407.1253772962302
+      },
+      {
+        "id": "device_3",
+        "consumption": 664.9331155225663
+      },
+      {
+        "id": "device_4",
+        "consumption": 4334.91378841702
+      },
+      {
+        "id": "device_5",
+        "consumption": 559.563313496727
+      },
+      {
+        "id": "device_6",
+        "consumption": 64.02634730850977
+      },
+      {
+        "id": "device_7",
+        "consumption": 861.1827211897754
+      },
+      {
+        "id": "device_8",
+        "consumption": 1159.8930830382442
+      },
+      {
+        "id": "device_9",
+        "consumption": 191.00663525794997
+      },
+      {
+        "id": "device_10",
+        "consumption": 315.0747152462561
+      }
+    ]
+  },
+  {
+    "2023-11-13": [
+      {
+        "id": "device_1",
+        "consumption": 1284.2911502605791
+      },
+      {
+        "id": "device_2",
+        "consumption": 315.6332764404967
+      },
+      {
+        "id": "device_3",
+        "consumption": 637.8745457122492
+      },
+      {
+        "id": "device_4",
+        "consumption": 3901.5990238901027
+      },
+      {
+        "id": "device_5",
+        "consumption": 415.1038358107813
+      },
+      {
+        "id": "device_6",
+        "consumption": 26.361633998937094
+      },
+      {
+        "id": "device_7",
+        "consumption": 1051.1998426722787
+      },
+      {
+        "id": "device_8",
+        "consumption": 1559.3254998400096
+      },
+      {
+        "id": "device_9",
+        "consumption": 28.25507838048165
+      },
+      {
+        "id": "device_10",
+        "consumption": 328.98176541703134
+      }
+    ]
+  },
+  {
+    "2023-11-14": [
+      {
+        "id": "device_1",
+        "consumption": 1289.429529601974
+      },
+      {
+        "id": "device_2",
+        "consumption": 333.94067579564495
+      },
+      {
+        "id": "device_3",
+        "consumption": 702.5433992390234
+      },
+      {
+        "id": "device_4",
+        "consumption": 3499.4891370667838
+      },
+      {
+        "id": "device_5",
+        "consumption": 463.6233285947478
+      },
+      {
+        "id": "device_6",
+        "consumption": 60.43777706204732
+      },
+      {
+        "id": "device_7",
+        "consumption": 1036.8889634968962
+      },
+      {
+        "id": "device_8",
+        "consumption": 1194.7369113340735
+      },
+      {
+        "id": "device_9",
+        "consumption": 161.62613351584537
+      },
+      {
+        "id": "device_10",
+        "consumption": 316.263789321512
+      }
+    ]
+  },
+  {
+    "2023-11-15": [
+      {
+        "id": "device_1",
+        "consumption": 1343.278632902495
+      },
+      {
+        "id": "device_2",
+        "consumption": 450.1167154585565
+      },
+      {
+        "id": "device_3",
+        "consumption": 720.2731483385784
+      },
+      {
+        "id": "device_4",
+        "consumption": 3828.5621599273586
+      },
+      {
+        "id": "device_5",
+        "consumption": 323.6092891151625
+      },
+      {
+        "id": "device_6",
+        "consumption": 55.13249321131404
+      },
+      {
+        "id": "device_7",
+        "consumption": 1174.4151555339597
+      },
+      {
+        "id": "device_8",
+        "consumption": 1008.2454275157166
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 280.77683102882315
+      }
+    ]
+  },
+  {
+    "2023-11-16": [
+      {
+        "id": "device_1",
+        "consumption": 1447.6544734438303
+      },
+      {
+        "id": "device_2",
+        "consumption": 404.65075483614663
+      },
+      {
+        "id": "device_3",
+        "consumption": 720.9472412269582
+      },
+      {
+        "id": "device_4",
+        "consumption": 3910.9218125220777
+      },
+      {
+        "id": "device_5",
+        "consumption": 203.4476767802868
+      },
+      {
+        "id": "device_6",
+        "consumption": 17.2114502512035
+      },
+      {
+        "id": "device_7",
+        "consumption": 1058.372065185939
+      },
+      {
+        "id": "device_8",
+        "consumption": 511.7614535417091
+      },
+      {
+        "id": "device_9",
+        "consumption": 114.74575676761594
+      },
+      {
+        "id": "device_10",
+        "consumption": 326.37862246387095
+      }
+    ]
+  },
+  {
+    "2023-11-17": [
+      {
+        "id": "device_1",
+        "consumption": 1355.804362704348
+      },
+      {
+        "id": "device_2",
+        "consumption": 361.71134213704727
+      },
+      {
+        "id": "device_3",
+        "consumption": 694.7307178669774
+      },
+      {
+        "id": "device_4",
+        "consumption": 3840.8401428617676
+      },
+      {
+        "id": "device_5",
+        "consumption": 433.3103299711934
+      },
+      {
+        "id": "device_6",
+        "consumption": 71.67553335721388
+      },
+      {
+        "id": "device_7",
+        "consumption": 1040.371759134313
+      },
+      {
+        "id": "device_8",
+        "consumption": 1798.7174829151822
+      },
+      {
+        "id": "device_9",
+        "consumption": 34.717867553475116
+      },
+      {
+        "id": "device_10",
+        "consumption": 304.5283721113274
+      }
+    ]
+  },
+  {
+    "2023-11-18": [
+      {
+        "id": "device_1",
+        "consumption": 1466.8528023059694
+      },
+      {
+        "id": "device_2",
+        "consumption": 374.49214005165567
+      },
+      {
+        "id": "device_3",
+        "consumption": 720.0102138522843
+      },
+      {
+        "id": "device_4",
+        "consumption": 3785.082915853624
+      },
+      {
+        "id": "device_5",
+        "consumption": 481.4491725454159
+      },
+      {
+        "id": "device_6",
+        "consumption": 20.20595512291923
+      },
+      {
+        "id": "device_7",
+        "consumption": 1188.2403027623177
+      },
+      {
+        "id": "device_8",
+        "consumption": 1371.640237151747
+      },
+      {
+        "id": "device_9",
+        "consumption": 26.267944386076742
+      },
+      {
+        "id": "device_10",
+        "consumption": 329.23924218217996
+      }
+    ]
+  },
+  {
+    "2023-11-19": [
+      {
+        "id": "device_1",
+        "consumption": 1508.514478897853
+      },
+      {
+        "id": "device_2",
+        "consumption": 318.44205241614543
+      },
+      {
+        "id": "device_3",
+        "consumption": 779.1242388949487
+      },
+      {
+        "id": "device_4",
+        "consumption": 4802.389780506196
+      },
+      {
+        "id": "device_5",
+        "consumption": 381.6978586901031
+      },
+      {
+        "id": "device_6",
+        "consumption": 35.11229877295485
+      },
+      {
+        "id": "device_7",
+        "consumption": 896.6481882910814
+      },
+      {
+        "id": "device_8",
+        "consumption": 1012.6608852554041
+      },
+      {
+        "id": "device_9",
+        "consumption": 38.55214605356512
+      },
+      {
+        "id": "device_10",
+        "consumption": 318.3515795855289
+      }
+    ]
+  },
+  {
+    "2023-11-20": [
+      {
+        "id": "device_1",
+        "consumption": 1577.103601847525
+      },
+      {
+        "id": "device_2",
+        "consumption": 357.92017799757963
+      },
+      {
+        "id": "device_3",
+        "consumption": 699.5883724536963
+      },
+      {
+        "id": "device_4",
+        "consumption": 4311.2261349177925
+      },
+      {
+        "id": "device_5",
+        "consumption": 458.7198707338769
+      },
+      {
+        "id": "device_6",
+        "consumption": 85.08625524868127
+      },
+      {
+        "id": "device_7",
+        "consumption": 922.615531135688
+      },
+      {
+        "id": "device_8",
+        "consumption": 1478.1269034673678
+      },
+      {
+        "id": "device_9",
+        "consumption": 33.45908919460419
+      },
+      {
+        "id": "device_10",
+        "consumption": 323.5807778417359
+      }
+    ]
+  },
+  {
+    "2023-11-21": [
+      {
+        "id": "device_1",
+        "consumption": 1287.3585339398614
+      },
+      {
+        "id": "device_2",
+        "consumption": 363.6836591971443
+      },
+      {
+        "id": "device_3",
+        "consumption": 667.5571713830432
+      },
+      {
+        "id": "device_4",
+        "consumption": 4357.344775019069
+      },
+      {
+        "id": "device_5",
+        "consumption": 294.9881440666314
+      },
+      {
+        "id": "device_6",
+        "consumption": 115.4604311648678
+      },
+      {
+        "id": "device_7",
+        "consumption": 1231.6230368427284
+      },
+      {
+        "id": "device_8",
+        "consumption": 1169.4837210882774
+      },
+      {
+        "id": "device_9",
+        "consumption": 51.95258508502292
+      },
+      {
+        "id": "device_10",
+        "consumption": 332.00761795562926
+      }
+    ]
+  },
+  {
+    "2023-11-22": [
+      {
+        "id": "device_1",
+        "consumption": 1405.8493906856074
+      },
+      {
+        "id": "device_2",
+        "consumption": 278.48372453031453
+      },
+      {
+        "id": "device_3",
+        "consumption": 705.7400688193101
+      },
+      {
+        "id": "device_4",
+        "consumption": 3932.3624653269294
+      },
+      {
+        "id": "device_5",
+        "consumption": 510.6138724067788
+      },
+      {
+        "id": "device_6",
+        "consumption": 27.029281322409066
+      },
+      {
+        "id": "device_7",
+        "consumption": 963.4235129372431
+      },
+      {
+        "id": "device_8",
+        "consumption": 1404.4040729327785
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 306.71157128149815
+      }
+    ]
+  },
+  {
+    "2023-11-23": [
+      {
+        "id": "device_1",
+        "consumption": 1377.099697521441
+      },
+      {
+        "id": "device_2",
+        "consumption": 297.8380651419583
+      },
+      {
+        "id": "device_3",
+        "consumption": 651.283214044458
+      },
+      {
+        "id": "device_4",
+        "consumption": 3474.668157348496
+      },
+      {
+        "id": "device_5",
+        "consumption": 576.9955406866643
+      },
+      {
+        "id": "device_6",
+        "consumption": 44.05390146935477
+      },
+      {
+        "id": "device_7",
+        "consumption": 963.5420401642
+      },
+      {
+        "id": "device_8",
+        "consumption": 197.7160944749562
+      },
+      {
+        "id": "device_9",
+        "consumption": 65.6040973055132
+      },
+      {
+        "id": "device_10",
+        "consumption": 334.02945784438464
+      }
+    ]
+  },
+  {
+    "2023-11-24": [
+      {
+        "id": "device_1",
+        "consumption": 1172.5888803056746
+      },
+      {
+        "id": "device_2",
+        "consumption": 207.5912279185454
+      },
+      {
+        "id": "device_3",
+        "consumption": 713.5950376340777
+      },
+      {
+        "id": "device_4",
+        "consumption": 4806.114007603281
+      },
+      {
+        "id": "device_5",
+        "consumption": 503.1185247110608
+      },
+      {
+        "id": "device_6",
+        "consumption": 57.58306811696934
+      },
+      {
+        "id": "device_7",
+        "consumption": 910.9630108866435
+      },
+      {
+        "id": "device_8",
+        "consumption": 898.2484351390544
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 315.64826161808736
+      }
+    ]
+  },
+  {
+    "2023-11-25": [
+      {
+        "id": "device_1",
+        "consumption": 1569.9053480119458
+      },
+      {
+        "id": "device_2",
+        "consumption": 302.32431453114947
+      },
+      {
+        "id": "device_3",
+        "consumption": 664.7951302083865
+      },
+      {
+        "id": "device_4",
+        "consumption": 4178.8647234455075
+      },
+      {
+        "id": "device_5",
+        "consumption": 308.3136321808712
+      },
+      {
+        "id": "device_6",
+        "consumption": 48.13809231027776
+      },
+      {
+        "id": "device_7",
+        "consumption": 879.0029990415767
+      },
+      {
+        "id": "device_8",
+        "consumption": 990.4682641553397
+      },
+      {
+        "id": "device_9",
+        "consumption": 60.193433303763385
+      },
+      {
+        "id": "device_10",
+        "consumption": 315.0691041021379
+      }
+    ]
+  },
+  {
+    "2023-11-26": [
+      {
+        "id": "device_1",
+        "consumption": 1453.7780836865836
+      },
+      {
+        "id": "device_2",
+        "consumption": 280.4150812814254
+      },
+      {
+        "id": "device_3",
+        "consumption": 711.1008405622022
+      },
+      {
+        "id": "device_4",
+        "consumption": 3752.7934351426848
+      },
+      {
+        "id": "device_5",
+        "consumption": 653.8990533662795
+      },
+      {
+        "id": "device_6",
+        "consumption": 112.6565084227015
+      },
+      {
+        "id": "device_7",
+        "consumption": 958.6959502140227
+      },
+      {
+        "id": "device_8",
+        "consumption": 1530.1625600319967
+      },
+      {
+        "id": "device_9",
+        "consumption": 172.37721402926763
+      },
+      {
+        "id": "device_10",
+        "consumption": 315.8440940560145
+      }
+    ]
+  },
+  {
+    "2023-11-27": [
+      {
+        "id": "device_1",
+        "consumption": 1271.4171024332227
+      },
+      {
+        "id": "device_2",
+        "consumption": 336.34638821293595
+      },
+      {
+        "id": "device_3",
+        "consumption": 682.6731200101052
+      },
+      {
+        "id": "device_4",
+        "consumption": 3765.273357762902
+      },
+      {
+        "id": "device_5",
+        "consumption": 447.96245932187315
+      },
+      {
+        "id": "device_6",
+        "consumption": 101.17365479259351
+      },
+      {
+        "id": "device_7",
+        "consumption": 1148.9372613650753
+      },
+      {
+        "id": "device_8",
+        "consumption": 1531.6257198416452
+      },
+      {
+        "id": "device_9",
+        "consumption": 103.73095742444741
+      },
+      {
+        "id": "device_10",
+        "consumption": 320.2188950617626
+      }
+    ]
+  },
+  {
+    "2023-11-28": [
+      {
+        "id": "device_1",
+        "consumption": 1285.025971089693
+      },
+      {
+        "id": "device_2",
+        "consumption": 195.37956323350258
+      },
+      {
+        "id": "device_3",
+        "consumption": 639.9716456693479
+      },
+      {
+        "id": "device_4",
+        "consumption": 3716.0100828476784
+      },
+      {
+        "id": "device_5",
+        "consumption": 268.8778197986661
+      },
+      {
+        "id": "device_6",
+        "consumption": 60.96601993234201
+      },
+      {
+        "id": "device_7",
+        "consumption": 1123.192635364981
+      },
+      {
+        "id": "device_8",
+        "consumption": 1385.5458207135605
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 316.00746877413013
+      }
+    ]
+  },
+  {
+    "2023-11-29": [
+      {
+        "id": "device_1",
+        "consumption": 1282.7823134066416
+      },
+      {
+        "id": "device_2",
+        "consumption": 353.3267006743414
+      },
+      {
+        "id": "device_3",
+        "consumption": 680.0435443399676
+      },
+      {
+        "id": "device_4",
+        "consumption": 3494.053695877405
+      },
+      {
+        "id": "device_5",
+        "consumption": 378.75080134827016
+      },
+      {
+        "id": "device_6",
+        "consumption": 47.398021907080654
+      },
+      {
+        "id": "device_7",
+        "consumption": 900.6390894004958
+      },
+      {
+        "id": "device_8",
+        "consumption": 1078.4950348595373
+      },
+      {
+        "id": "device_9",
+        "consumption": 189.48012543184228
+      },
+      {
+        "id": "device_10",
+        "consumption": 312.1918448948274
+      }
+    ]
+  },
+  {
+    "2023-11-30": [
+      {
+        "id": "device_1",
+        "consumption": 1288.4480894495393
+      },
+      {
+        "id": "device_2",
+        "consumption": 376.2919004636509
+      },
+      {
+        "id": "device_3",
+        "consumption": 652.6415834627618
+      },
+      {
+        "id": "device_4",
+        "consumption": 3737.499905821429
+      },
+      {
+        "id": "device_5",
+        "consumption": 368.3594237011616
+      },
+      {
+        "id": "device_6",
+        "consumption": 33.66178987049318
+      },
+      {
+        "id": "device_7",
+        "consumption": 1046.2233825770486
+      },
+      {
+        "id": "device_8",
+        "consumption": 2204.770540914768
+      },
+      {
+        "id": "device_9",
+        "consumption": 0
+      },
+      {
+        "id": "device_10",
+        "consumption": 318.68930210189046
+      }
+    ]
+  }
+]
